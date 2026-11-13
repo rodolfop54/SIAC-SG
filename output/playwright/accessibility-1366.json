@@ -1,0 +1,14 @@
+[
+  {
+    "route": "/disponibilidad",
+    "violations": []
+  },
+  {
+    "route": "/mis-citas",
+    "violations": []
+  },
+  {
+    "route": "/bot",
+    "violations": []
+  }
+]

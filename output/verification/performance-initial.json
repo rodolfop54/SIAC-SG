@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-13T03:07:10.989Z",
+  "durationSeconds": 305.177,
+  "sessions": 10,
+  "requests": 577,
+  "errors": 576,
+  "statuses": [
+    409
+  ],
+  "p95Ms": 6526.667599999986,
+  "maxMs": 7961.191899999991,
+  "host": {
+    "os": "Windows_NT",
+    "release": "10.0.26200",
+    "cpu": "Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz",
+    "memoryGB": 16,
+    "node": "v24.21.0"
+  },
+  "scope": "Lecturas autenticadas de disponibilidad y mis citas; servidor PHP de desarrollo local; 250ms entre peticiones por sesión."
+}

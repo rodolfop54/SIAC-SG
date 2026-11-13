@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="[SIAC-SG]\phpunit.xml" tests="18" assertions="168" errors="0" failures="0" skipped="0" time="4.722106">
+    <testsuite name="SIAC-SG" tests="18" assertions="168" errors="0" failures="0" skipped="0" time="4.722106">
+      <testsuite name="Tests\Feature\SchedulingTest" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" tests="18" assertions="168" errors="0" failures="0" skipped="0" time="4.722106">
+        <testcase name="test_t01_login_invalid_valid_and_logout" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="49" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="12" time="1.102660"/>
+        <testcase name="test_t02_availability_excludes_occupied_disabled_past_and_disabled_service" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="61" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="13" time="0.207308"/>
+        <testcase name="test_t03_reserve_persists_and_retry_returns_same_result" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="76" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="5" time="0.132581"/>
+        <testcase name="test_t04_only_own_history_and_confirmation" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="89" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="11" time="0.149086"/>
+        <testcase name="test_t05_conflict_keeps_original_then_reschedule_preserves_code" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="98" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="8" time="0.147410"/>
+        <testcase name="test_t06_cancel_requires_confirmation_and_is_idempotent" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="114" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="9" time="0.124275"/>
+        <testcase name="test_t07_admin_creates_blocks_enables_but_cannot_block_occupied_or_overlap" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="127" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="9" time="0.144766"/>
+        <testcase name="test_t08_audit_before_after_and_actor_without_secrets" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="144" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="5" time="0.111598"/>
+        <testcase name="test_t09_reports_match_database_and_filter_by_service" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="157" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="15" time="0.233709"/>
+        <testcase name="test_t10_bot_full_lifecycle_invalid_input_and_unique_reminders" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="168" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="17" time="0.234908"/>
+        <testcase name="test_t14_all_foreign_mutations_and_admin_routes_are_forbidden" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="200" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="9" time="0.185133"/>
+        <testcase name="test_t15_validation_idle_session_and_role_forgery" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="216" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="9" time="0.104356"/>
+        <testcase name="test_t16_audit_failure_rolls_back_booking" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="226" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="4" time="0.109802"/>
+        <testcase name="test_t16_postgres_partial_index_rejects_duplicate_active_slot" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="242" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="1" time="0.105494"/>
+        <testcase name="test_t17_only_synthetic_fields_and_local_messages" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="249" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="3" time="0.104251"/>
+        <testcase name="test_t10_reminder_only_history_still_has_identification_prompt" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="259" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="12" time="0.093509"/>
+        <testcase name="test_t10_invalid_structured_options_recover_without_mutation" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="266" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="5" time="0.121040"/>
+        <testcase name="test_t15_failed_login_is_limited_without_limiting_valid_sessions" file="[SIAC-SG]\tests\Feature\SchedulingTest.php" line="281" class="Tests\Feature\SchedulingTest" classname="Tests.Feature.SchedulingTest" assertions="21" time="1.310218"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

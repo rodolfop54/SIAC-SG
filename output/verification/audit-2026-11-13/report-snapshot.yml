@@ -1,0 +1,125 @@
+- generic [ref=f3e2]:
+  - link "Saltar al contenido" [ref=f3e3] [cursor=pointer]:
+    - /url: "#main"
+  - generic [ref=f3e4]:
+    - complementary [ref=f3e5]:
+      - link "SIAC-SG, inicio" [ref=f3e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e11]:
+          - text: SIAC-SG
+          - generic [ref=f3e12]: Gestión de citas
+      - generic [ref=f3e13]: Administración
+      - navigation "Navegación principal" [ref=f3e14]:
+        - link "Agenda" [ref=f3e15] [cursor=pointer]:
+          - /url: /admin/agenda
+        - link "Auditoría" [ref=f3e18] [cursor=pointer]:
+          - /url: /admin/auditoria
+        - link "Reportes" [ref=f3e23] [cursor=pointer]:
+          - /url: /admin/reportes
+      - generic [ref=f3e27]:
+        - strong [ref=f3e30]: Un espacio para aprender
+        - paragraph [ref=f3e31]: Todas las cuentas y citas son ficticias. No se presta atención médica.
+        - link "Acerca del laboratorio" [ref=f3e32] [cursor=pointer]:
+          - /url: /
+      - generic [ref=f3e36]:
+        - generic [ref=f3e41]:
+          - strong [ref=f3e42]: DEMO-ADMIN
+          - generic [ref=f3e43]: Administrador de prueba
+        - button "Cerrar sesión" [ref=f3e44] [cursor=pointer]
+    - generic [ref=f3e48]:
+      - banner [ref=f3e49]:
+        - generic [ref=f3e50]:
+          - text: Panel de administración /
+          - strong [ref=f3e51]: Reportes
+        - generic [ref=f3e52]: Laboratorio académico
+      - generic [ref=f3e54]: Datos ficticios. Sin conexión al Hospital de Sabanagrande ni a servicios de salud reales.
+      - main [ref=f3e58]:
+        - generic [ref=f3e59]:
+          - generic [ref=f3e60]:
+            - heading "Reportes" [level=1] [ref=f3e61]
+            - paragraph [ref=f3e62]: Actividad de citas ficticias, calculada desde la base de datos.
+          - button "Exportar CSV" [ref=f3e63] [cursor=pointer]
+        - generic [ref=f3e67]:
+          - generic [ref=f3e68]:
+            - generic [ref=f3e69]: Desde
+            - textbox "Desde" [ref=f3e70]: 2026-11-01
+          - generic [ref=f3e71]:
+            - generic [ref=f3e72]: Hasta
+            - textbox "Hasta" [ref=f3e73]: 2026-12-31
+          - generic [ref=f3e74]:
+            - generic [ref=f3e75]: Servicio
+            - combobox "Servicio" [ref=f3e76]:
+              - option "Todos los servicios" [selected]
+              - option "Consulta general"
+              - option "Odontología"
+              - option "Enfermería"
+              - option "Nutrición"
+          - button "Aplicar filtros" [ref=f3e77] [cursor=pointer]
+        - paragraph [ref=f3e78]: Periodo según la fecha programada de la cita, del 1 de noviembre de 2026 al 31 de diciembre de 2026. Incluye citas canceladas.
+        - generic [ref=f3e79]:
+          - generic [ref=f3e80]:
+            - generic [ref=f3e81]: Total de citas
+            - strong [ref=f3e82]: "20"
+          - generic [ref=f3e83]:
+            - generic [ref=f3e84]: Confirmadas
+            - strong [ref=f3e86]: "8"
+          - generic [ref=f3e87]:
+            - generic [ref=f3e88]: Canceladas
+            - strong [ref=f3e90]: "12"
+        - generic [ref=f3e91]:
+          - heading "Citas por fecha" [level=2] [ref=f3e92]
+          - paragraph [ref=f3e93]: Distribución dentro del periodo seleccionado
+          - 'img "13 de noviembre de 2026: 15 citas. 14 de noviembre de 2026: 2 citas. 16 de noviembre de 2026: 1 citas. 18 de noviembre de 2026: 1 citas. 20 de noviembre de 2026: 1 citas" [ref=f3e94]':
+            - generic [ref=f3e95]:
+              - strong [ref=f3e96]: "15"
+              - text: 13 de nov
+            - generic [ref=f3e99]:
+              - strong [ref=f3e100]: "2"
+              - text: 14 de nov
+            - generic [ref=f3e103]:
+              - strong [ref=f3e104]: "1"
+              - text: 16 de nov
+            - generic [ref=f3e107]:
+              - strong [ref=f3e108]: "1"
+              - text: 18 de nov
+            - generic [ref=f3e111]:
+              - strong [ref=f3e112]: "1"
+              - text: 20 de nov
+        - generic [ref=f3e115]:
+          - heading "Detalle por servicio" [level=2] [ref=f3e117]
+          - region "Reporte por servicio" [ref=f3e120]:
+            - table [ref=f3e121]:
+              - rowgroup [ref=f3e122]:
+                - row [ref=f3e123]:
+                  - columnheader "Servicio" [ref=f3e124]
+                  - columnheader "Total" [ref=f3e125]
+                  - columnheader "Confirmadas" [ref=f3e126]
+                  - columnheader "Canceladas" [ref=f3e127]
+              - rowgroup [ref=f3e128]:
+                - row [ref=f3e129]:
+                  - cell [ref=f3e130]:
+                    - strong [ref=f3e131]: Consulta general
+                  - cell "17" [ref=f3e132]
+                  - cell "5" [ref=f3e133]
+                  - cell "12" [ref=f3e134]
+                - row [ref=f3e135]:
+                  - cell [ref=f3e136]:
+                    - strong [ref=f3e137]: Enfermería
+                  - cell "1" [ref=f3e138]
+                  - cell "1" [ref=f3e139]
+                  - cell "0" [ref=f3e140]
+                - row [ref=f3e141]:
+                  - cell [ref=f3e142]:
+                    - strong [ref=f3e143]: Nutrición
+                  - cell "1" [ref=f3e144]
+                  - cell "1" [ref=f3e145]
+                  - cell "0" [ref=f3e146]
+                - row [ref=f3e147]:
+                  - cell [ref=f3e148]:
+                    - strong [ref=f3e149]: Odontología
+                  - cell "1" [ref=f3e150]
+                  - cell "1" [ref=f3e151]
+                  - cell "0" [ref=f3e152]
+      - contentinfo [ref=f3e153]:
+        - generic [ref=f3e154]: SIAC-SG · Proyecto de grado UNAD
+        - generic [ref=f3e155]: Hora de Colombia · America/Bogota

@@ -1,0 +1,30 @@
+[
+    {
+        "Path":  "<SIAC-SG>\\app\\Http\\Controllers\\AuthController.php",
+        "Hash":  "CD33414F93EBDF69B97AFCA4D0D5F52813856AE7542ED22897714DA8645A73CE"
+    },
+    {
+        "Path":  "<SIAC-SG>\\app\\Http\\Controllers\\BotController.php",
+        "Hash":  "72556151337F3FBEE203AD5914A7BF82ABD7E67A338F7C51B0F18DBD25605139"
+    },
+    {
+        "Path":  "<SIAC-SG>\\app\\Services\\BotService.php",
+        "Hash":  "971C90B80857B262066547AD3BB34736BF7E4E7DBB29857C841C75D492DDDD10"
+    },
+    {
+        "Path":  "<SIAC-SG>\\app\\Services\\PatientIdentityService.php",
+        "Hash":  "9AF4F2330EEA1FBC53F27E0A2B426D92FCC799C0CE62752D7FE004D9263D8613"
+    },
+    {
+        "Path":  "<SIAC-SG>\\resources\\js\\pages\\Bot.tsx",
+        "Hash":  "394D50EC503D21DB3A7AE5E4FEFF2989FD0842787C388FF3B334D69AB2481BB7"
+    },
+    {
+        "Path":  "<SIAC-SG>\\resources\\js\\app.tsx",
+        "Hash":  "4BA5EAFDCA4AFD46582E693B3FF933CA84C9B4C949B1DE1C267950CA89904F7F"
+    },
+    {
+        "Path":  "<SIAC-SG>\\public\\build\\manifest.json",
+        "Hash":  "1C44A4A6FC576E607735F7BE2B1B35BFDD3D070D31DBF231619CEAE2795D204D"
+    }
+]

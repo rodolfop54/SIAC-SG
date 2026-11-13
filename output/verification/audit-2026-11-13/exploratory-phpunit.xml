@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\RequirementAuditTest" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" tests="7" assertions="125" errors="0" failures="3" skipped="0" time="2.391702">
+    <testcase name="test_rf02_empty_availability_is_successful_and_has_no_slots" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" line="34" class="Tests\Feature\RequirementAuditTest" classname="Tests.Feature.RequirementAuditTest" assertions="12" time="1.473681"/>
+    <testcase name="test_rf08_all_six_operations_keep_actor_time_before_after_and_filter" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" line="43" class="Tests\Feature\RequirementAuditTest" classname="Tests.Feature.RequirementAuditTest" assertions="42" time="0.163831"/>
+    <testcase name="test_rf09_period_limits_bogota_day_service_and_empty_results" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" line="74" class="Tests\Feature\RequirementAuditTest" classname="Tests.Feature.RequirementAuditTest" assertions="34" time="0.149539"/>
+    <testcase name="test_rf10_reminders_exclude_past_cancelled_and_beyond_24_hours" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" line="90" class="Tests\Feature\RequirementAuditTest" classname="Tests.Feature.RequirementAuditTest" assertions="4" time="0.123787"/>
+    <testcase name="test_rf10_menu_during_patient_identification_should_restart_guidance" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" line="105" class="Tests\Feature\RequirementAuditTest" classname="Tests.Feature.RequirementAuditTest" assertions="13" time="0.114679">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\RequirementAuditTest::test_rf10_menu_during_patient_identification_should_restart_guidance&#13;
+Property [onboarding.label] does not match the expected value.
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Tipo de documento'
++'Nombre completo ficticio'
+&#13;
+[SIAC-SG]\vendor\laravel\framework\src\Illuminate\Testing\Fluent\Concerns\Matching.php:43
+[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php:109
+[SIAC-SG]\vendor\inertiajs\inertia-laravel\src\Testing\TestResponseMacros.php:26
+[SIAC-SG]\vendor\laravel\framework\src\Illuminate\Macroable\Traits\Macroable.php:132
+[SIAC-SG]\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:2088
+[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php:109</failure>
+    </testcase>
+    <testcase name="test_rf10_new_session_should_not_offer_confirmation_from_old_session" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" line="113" class="Tests\Feature\RequirementAuditTest" classname="Tests.Feature.RequirementAuditTest" assertions="5" time="0.136399">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\RequirementAuditTest::test_rf10_new_session_should_not_offer_confirmation_from_old_session&#13;
+A new session should display its current menu rather than stale confirmation choices.
+Failed asserting that an array contains '1'.
+&#13;
+[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php:127</failure>
+    </testcase>
+    <testcase name="test_rf01_document_login_throttle_should_use_visible_document_error_field" file="[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php" line="130" class="Tests\Feature\RequirementAuditTest" classname="Tests.Feature.RequirementAuditTest" assertions="15" time="0.229785">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\RequirementAuditTest::test_rf01_document_login_throttle_should_use_visible_document_error_field&#13;
+Session missing error: document_number
+Failed asserting that false is true.&#13;
+&#13;
+The following errors occurred during the last request:
+
+Demasiados intentos fallidos. Espera un minuto antes de volver a intentar.
+&#13;
+[SIAC-SG]\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:46
+[SIAC-SG]\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1714
+[SIAC-SG]\output\verification\audit-2026-11-13\RequirementAuditTest.php:136</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

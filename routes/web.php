@@ -1,0 +1,38 @@
+<?php
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BotController;
+use App\Http\Controllers\RegistrationController;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+
+Route::get('/', fn () => Inertia::render('Home'))->name('home');
+Route::get('/bot', [BotController::class, 'index'])->name('bot');
+Route::post('/bot', [BotController::class, 'send'])->middleware('throttle:60,1,public-bot')->block(10, 10);
+Route::post('/bot/cambiar-identidad', [BotController::class, 'reset'])->middleware('throttle:20,1,bot-reset')->block(10, 10);
+Route::middleware('guest')->group(function () {
+    Route::get('/acceso', [AuthController::class, 'show'])->name('login');
+    Route::post('/acceso', [AuthController::class, 'login']);
+    Route::get('/registro', [RegistrationController::class, 'show'])->name('register');
+    Route::post('/registro', [RegistrationController::class, 'store'])->middleware('throttle:10,1,registration')->block(10, 10);
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/salir', [AuthController::class, 'logout']);
+    Route::middleware('role:user')->group(function () {
+        Route::get('/disponibilidad', [AppointmentController::class, 'availability']);
+        Route::get('/mis-citas', [AppointmentController::class, 'index']);
+        Route::get('/citas/{appointment}', [AppointmentController::class, 'show']);
+        Route::post('/citas', [AppointmentController::class, 'store'])->middleware('throttle:30,1');
+        Route::patch('/citas/{appointment}', [AppointmentController::class, 'update']);
+        Route::post('/citas/{appointment}/cancelar', [AppointmentController::class, 'cancel']);
+    });
+    Route::prefix('admin')->middleware('role:admin')->group(function () {
+        Route::get('/agenda', [AdminController::class, 'agenda']);
+        Route::post('/franjas', [AdminController::class, 'store']);
+        Route::patch('/franjas/{slot}', [AdminController::class, 'toggle']);
+        Route::get('/auditoria', [AdminController::class, 'audit']);
+        Route::get('/reportes', [AdminController::class, 'reports']);
+    });
+});

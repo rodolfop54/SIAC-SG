@@ -1,0 +1,594 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "<SIAC-SG>\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "<SIAC-SG>\\playwright.config.ts",
+    "rootDir": "<SIAC-SG>/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "<SIAC-SG>/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "<SIAC-SG>/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "<SIAC-SG>\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "<SIAC-SG>\\tests\\e2e",
+        "snapshotDir": "<SIAC-SG>\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:8000",
+          "channel": "chrome",
+          "viewport": {
+            "width": 1366,
+            "height": 950
+          },
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "flows.spec.ts",
+      "file": "flows.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28823,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:10:74",
+                    "location": {
+                      "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                      "column": 252,
+                      "line": 7
+                    },
+                    "snippet": " \u001b[90m  5 |\u001b[39m mkdirSync(\u001b[32m'output/playwright'\u001b[39m\u001b[33m,\u001b[39m{recursive\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m login(page\u001b[33m:\u001b[39m\u001b[36mimport\u001b[39m(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m.\u001b[39m\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39malias\u001b[33m=\u001b[39m\u001b[32m'DEMO-ALBA'\u001b[39m){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/acceso'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Alias de prueba'\u001b[39m)\u001b[33m.\u001b[39mfill(alias)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Contraseña de prueba'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mfill(env\u001b[33m.\u001b[39m\u001b[33mDEMO_PASSWORD\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Entrar a mi espacio'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(alias\u001b[33m===\u001b[39m\u001b[32m'DEMO-ADMIN'\u001b[39m\u001b[33m?\u001b[39m\u001b[35m/admin\\/agenda/\u001b[39m\u001b[33m:\u001b[39m\u001b[35m/disponibilidad/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                                                                                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m }\n \u001b[90m  9 |\u001b[39m test(\u001b[32m'T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado'\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page})\u001b[33m=>\u001b[39m{\n \u001b[90m 10 |\u001b[39m  \u001b[36mconst\u001b[39m errors\u001b[33m:\u001b[39mstring[]\u001b[33m=\u001b[39m[]\u001b[33m;\u001b[39mpage\u001b[33m.\u001b[39mon(\u001b[32m'pageerror'\u001b[39m\u001b[33m,\u001b[39me\u001b[33m=>\u001b[39merrors\u001b[33m.\u001b[39mpush(e\u001b[33m.\u001b[39mmessage))\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                        "column": 252,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n\n   5 | mkdirSync('output/playwright',{recursive:true});\n   6 | async function login(page:import('@playwright/test').Page,alias='DEMO-ALBA'){\n>  7 |  await page.goto('/acceso');await page.getByLabel('Alias de prueba').fill(alias);await page.getByLabel('Contraseña de prueba',{exact:true}).fill(env.DEMO_PASSWORD);await page.getByRole('button',{name:'Entrar a mi espacio'}).click();await expect(page).toHaveURL(alias==='DEMO-ADMIN'?/admin\\/agenda/:/disponibilidad/);\n     |                                                                                                                                                                                                                                                            ^\n   8 | }\n   9 | test('T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado',async({page})=>{\n  10 |  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await login(page);\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:10:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T03:04:14.745Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<SIAC-SG>\\test-results\\flows-T03–T06-·-recorrido--7decc-amar-y-cancelar-con-teclado\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<SIAC-SG>\\test-results\\flows-T03–T06-·-recorrido--7decc-amar-y-cancelar-con-teclado\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<SIAC-SG>\\test-results\\flows-T03–T06-·-recorrido--7decc-amar-y-cancelar-con-teclado\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                    "column": 252,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "86d6a544053f1eb9f224-ab16d580d4a631952bdc",
+          "file": "flows.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "T10 · bot reserva y cancela, información compartida con web",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28226,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:17:2",
+                    "location": {
+                      "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                      "column": 252,
+                      "line": 7
+                    },
+                    "snippet": " \u001b[90m  5 |\u001b[39m mkdirSync(\u001b[32m'output/playwright'\u001b[39m\u001b[33m,\u001b[39m{recursive\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m login(page\u001b[33m:\u001b[39m\u001b[36mimport\u001b[39m(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m.\u001b[39m\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39malias\u001b[33m=\u001b[39m\u001b[32m'DEMO-ALBA'\u001b[39m){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/acceso'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Alias de prueba'\u001b[39m)\u001b[33m.\u001b[39mfill(alias)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Contraseña de prueba'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mfill(env\u001b[33m.\u001b[39m\u001b[33mDEMO_PASSWORD\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Entrar a mi espacio'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(alias\u001b[33m===\u001b[39m\u001b[32m'DEMO-ADMIN'\u001b[39m\u001b[33m?\u001b[39m\u001b[35m/admin\\/agenda/\u001b[39m\u001b[33m:\u001b[39m\u001b[35m/disponibilidad/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                                                                                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m }\n \u001b[90m  9 |\u001b[39m test(\u001b[32m'T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado'\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page})\u001b[33m=>\u001b[39m{\n \u001b[90m 10 |\u001b[39m  \u001b[36mconst\u001b[39m errors\u001b[33m:\u001b[39mstring[]\u001b[33m=\u001b[39m[]\u001b[33m;\u001b[39mpage\u001b[33m.\u001b[39mon(\u001b[32m'pageerror'\u001b[39m\u001b[33m,\u001b[39me\u001b[33m=>\u001b[39merrors\u001b[33m.\u001b[39mpush(e\u001b[33m.\u001b[39mmessage))\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                        "column": 252,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n\n   5 | mkdirSync('output/playwright',{recursive:true});\n   6 | async function login(page:import('@playwright/test').Page,alias='DEMO-ALBA'){\n>  7 |  await page.goto('/acceso');await page.getByLabel('Alias de prueba').fill(alias);await page.getByLabel('Contraseña de prueba',{exact:true}).fill(env.DEMO_PASSWORD);await page.getByRole('button',{name:'Entrar a mi espacio'}).click();await expect(page).toHaveURL(alias==='DEMO-ADMIN'?/admin\\/agenda/:/disponibilidad/);\n     |                                                                                                                                                                                                                                                            ^\n   8 | }\n   9 | test('T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado',async({page})=>{\n  10 |  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await login(page);\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:17:2"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T03:04:45.314Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<SIAC-SG>\\test-results\\flows-T10-·-bot-reserva-y--ff9f4-ormación-compartida-con-web\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<SIAC-SG>\\test-results\\flows-T10-·-bot-reserva-y--ff9f4-ormación-compartida-con-web\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<SIAC-SG>\\test-results\\flows-T10-·-bot-reserva-y--ff9f4-ormación-compartida-con-web\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                    "column": 252,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "86d6a544053f1eb9f224-0bda5932f1a7c94c8214",
+          "file": "flows.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "T11–T13 · reflujo, accesibilidad y capturas a 360px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28885,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:21:49",
+                    "location": {
+                      "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                      "column": 252,
+                      "line": 7
+                    },
+                    "snippet": " \u001b[90m  5 |\u001b[39m mkdirSync(\u001b[32m'output/playwright'\u001b[39m\u001b[33m,\u001b[39m{recursive\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m login(page\u001b[33m:\u001b[39m\u001b[36mimport\u001b[39m(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m.\u001b[39m\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39malias\u001b[33m=\u001b[39m\u001b[32m'DEMO-ALBA'\u001b[39m){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/acceso'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Alias de prueba'\u001b[39m)\u001b[33m.\u001b[39mfill(alias)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Contraseña de prueba'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mfill(env\u001b[33m.\u001b[39m\u001b[33mDEMO_PASSWORD\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Entrar a mi espacio'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(alias\u001b[33m===\u001b[39m\u001b[32m'DEMO-ADMIN'\u001b[39m\u001b[33m?\u001b[39m\u001b[35m/admin\\/agenda/\u001b[39m\u001b[33m:\u001b[39m\u001b[35m/disponibilidad/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                                                                                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m }\n \u001b[90m  9 |\u001b[39m test(\u001b[32m'T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado'\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page})\u001b[33m=>\u001b[39m{\n \u001b[90m 10 |\u001b[39m  \u001b[36mconst\u001b[39m errors\u001b[33m:\u001b[39mstring[]\u001b[33m=\u001b[39m[]\u001b[33m;\u001b[39mpage\u001b[33m.\u001b[39mon(\u001b[32m'pageerror'\u001b[39m\u001b[33m,\u001b[39me\u001b[33m=>\u001b[39merrors\u001b[33m.\u001b[39mpush(e\u001b[33m.\u001b[39mmessage))\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                        "column": 252,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n\n   5 | mkdirSync('output/playwright',{recursive:true});\n   6 | async function login(page:import('@playwright/test').Page,alias='DEMO-ALBA'){\n>  7 |  await page.goto('/acceso');await page.getByLabel('Alias de prueba').fill(alias);await page.getByLabel('Contraseña de prueba',{exact:true}).fill(env.DEMO_PASSWORD);await page.getByRole('button',{name:'Entrar a mi espacio'}).click();await expect(page).toHaveURL(alias==='DEMO-ADMIN'?/admin\\/agenda/:/disponibilidad/);\n     |                                                                                                                                                                                                                                                            ^\n   8 | }\n   9 | test('T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado',async({page})=>{\n  10 |  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await login(page);\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:21:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T03:05:15.190Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-360px\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-360px\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-360px\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                    "column": 252,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "86d6a544053f1eb9f224-448a8d2e3e13af2ce630",
+          "file": "flows.spec.ts",
+          "line": 20,
+          "column": 35
+        },
+        {
+          "title": "T11–T13 · reflujo, accesibilidad y capturas a 768px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28891,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:21:49",
+                    "location": {
+                      "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                      "column": 252,
+                      "line": 7
+                    },
+                    "snippet": " \u001b[90m  5 |\u001b[39m mkdirSync(\u001b[32m'output/playwright'\u001b[39m\u001b[33m,\u001b[39m{recursive\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m login(page\u001b[33m:\u001b[39m\u001b[36mimport\u001b[39m(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m.\u001b[39m\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39malias\u001b[33m=\u001b[39m\u001b[32m'DEMO-ALBA'\u001b[39m){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/acceso'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Alias de prueba'\u001b[39m)\u001b[33m.\u001b[39mfill(alias)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Contraseña de prueba'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mfill(env\u001b[33m.\u001b[39m\u001b[33mDEMO_PASSWORD\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Entrar a mi espacio'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(alias\u001b[33m===\u001b[39m\u001b[32m'DEMO-ADMIN'\u001b[39m\u001b[33m?\u001b[39m\u001b[35m/admin\\/agenda/\u001b[39m\u001b[33m:\u001b[39m\u001b[35m/disponibilidad/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                                                                                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m }\n \u001b[90m  9 |\u001b[39m test(\u001b[32m'T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado'\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page})\u001b[33m=>\u001b[39m{\n \u001b[90m 10 |\u001b[39m  \u001b[36mconst\u001b[39m errors\u001b[33m:\u001b[39mstring[]\u001b[33m=\u001b[39m[]\u001b[33m;\u001b[39mpage\u001b[33m.\u001b[39mon(\u001b[32m'pageerror'\u001b[39m\u001b[33m,\u001b[39me\u001b[33m=>\u001b[39merrors\u001b[33m.\u001b[39mpush(e\u001b[33m.\u001b[39mmessage))\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                        "column": 252,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n\n   5 | mkdirSync('output/playwright',{recursive:true});\n   6 | async function login(page:import('@playwright/test').Page,alias='DEMO-ALBA'){\n>  7 |  await page.goto('/acceso');await page.getByLabel('Alias de prueba').fill(alias);await page.getByLabel('Contraseña de prueba',{exact:true}).fill(env.DEMO_PASSWORD);await page.getByRole('button',{name:'Entrar a mi espacio'}).click();await expect(page).toHaveURL(alias==='DEMO-ADMIN'?/admin\\/agenda/:/disponibilidad/);\n     |                                                                                                                                                                                                                                                            ^\n   8 | }\n   9 | test('T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado',async({page})=>{\n  10 |  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await login(page);\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:21:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T03:05:45.923Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-768px\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-768px\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-768px\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                    "column": 252,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "86d6a544053f1eb9f224-1e8b97735d3fc9e2faf9",
+          "file": "flows.spec.ts",
+          "line": 20,
+          "column": 35
+        },
+        {
+          "title": "T11–T13 · reflujo, accesibilidad y capturas a 1366px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 29057,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:21:49",
+                    "location": {
+                      "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                      "column": 252,
+                      "line": 7
+                    },
+                    "snippet": " \u001b[90m  5 |\u001b[39m mkdirSync(\u001b[32m'output/playwright'\u001b[39m\u001b[33m,\u001b[39m{recursive\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m login(page\u001b[33m:\u001b[39m\u001b[36mimport\u001b[39m(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m.\u001b[39m\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39malias\u001b[33m=\u001b[39m\u001b[32m'DEMO-ALBA'\u001b[39m){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/acceso'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Alias de prueba'\u001b[39m)\u001b[33m.\u001b[39mfill(alias)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Contraseña de prueba'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mfill(env\u001b[33m.\u001b[39m\u001b[33mDEMO_PASSWORD\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Entrar a mi espacio'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(alias\u001b[33m===\u001b[39m\u001b[32m'DEMO-ADMIN'\u001b[39m\u001b[33m?\u001b[39m\u001b[35m/admin\\/agenda/\u001b[39m\u001b[33m:\u001b[39m\u001b[35m/disponibilidad/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                                                                                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m }\n \u001b[90m  9 |\u001b[39m test(\u001b[32m'T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado'\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page})\u001b[33m=>\u001b[39m{\n \u001b[90m 10 |\u001b[39m  \u001b[36mconst\u001b[39m errors\u001b[33m:\u001b[39mstring[]\u001b[33m=\u001b[39m[]\u001b[33m;\u001b[39mpage\u001b[33m.\u001b[39mon(\u001b[32m'pageerror'\u001b[39m\u001b[33m,\u001b[39me\u001b[33m=>\u001b[39merrors\u001b[33m.\u001b[39mpush(e\u001b[33m.\u001b[39mmessage))\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                        "column": 252,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/disponibilidad/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:8000/acceso\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"es\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\u001b[2m    20 × locator resolved to <html lang=\"es\" class=\"nprogress-busy\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:8000/acceso\"\u001b[22m\n\n\n   5 | mkdirSync('output/playwright',{recursive:true});\n   6 | async function login(page:import('@playwright/test').Page,alias='DEMO-ALBA'){\n>  7 |  await page.goto('/acceso');await page.getByLabel('Alias de prueba').fill(alias);await page.getByLabel('Contraseña de prueba',{exact:true}).fill(env.DEMO_PASSWORD);await page.getByRole('button',{name:'Entrar a mi espacio'}).click();await expect(page).toHaveURL(alias==='DEMO-ADMIN'?/admin\\/agenda/:/disponibilidad/);\n     |                                                                                                                                                                                                                                                            ^\n   8 | }\n   9 | test('T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado',async({page})=>{\n  10 |  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await login(page);\n    at login (<SIAC-SG>\\tests\\e2e\\flows.spec.ts:7:252)\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:21:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T03:06:16.413Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-1366px\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-1366px\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<SIAC-SG>\\test-results\\flows-T11–T13-·-reflujo-accesibilidad-y-capturas-a-1366px\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                    "column": 252,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "86d6a544053f1eb9f224-710a9ac33c070b3755d4",
+          "file": "flows.spec.ts",
+          "line": 20,
+          "column": 35
+        },
+        {
+          "title": "T07–T09 · administración, filtros, crear franja, auditoría y reportes",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 38206,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 52\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure elements that have scrollable content are accessible by keyboard in Safari\",\u001b[39m\n\u001b[31m+     \"help\": \"Scrollable region must have keyboard access\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"scrollable-region-focusable\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"focusable-content\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element should have focusable content\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"focusable-element\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element should be focusable\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element should have focusable content\u001b[39m\n\u001b[31m+   Element should be focusable\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"bar-chart\\\" role=\\\"img\\\" aria-label=\\\"13 de noviembre de 2026: 3 citas. 14 de noviembre de 2026: 1 citas. 16 de noviembre de 2026: 1 citas. 18 de noviembre de 2026: 1 citas. 20 de noviembre de 2026: 1 citas\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".bar-chart\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.keyboard\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag211\",\u001b[39m\n\u001b[31m+       \"wcag213\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT4.a\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.2.1.1\",\u001b[39m\n\u001b[31m+       \"EN-9.2.1.3\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-7.3.2\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 52\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure elements that have scrollable content are accessible by keyboard in Safari\",\u001b[39m\n\u001b[31m+     \"help\": \"Scrollable region must have keyboard access\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"scrollable-region-focusable\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"focusable-content\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element should have focusable content\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"focusable-element\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element should be focusable\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element should have focusable content\u001b[39m\n\u001b[31m+   Element should be focusable\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"bar-chart\\\" role=\\\"img\\\" aria-label=\\\"13 de noviembre de 2026: 3 citas. 14 de noviembre de 2026: 1 citas. 16 de noviembre de 2026: 1 citas. 18 de noviembre de 2026: 1 citas. 20 de noviembre de 2026: 1 citas\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".bar-chart\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.keyboard\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag211\",\u001b[39m\n\u001b[31m+       \"wcag213\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT4.a\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.2.1.1\",\u001b[39m\n\u001b[31m+       \"EN-9.2.1.3\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-7.3.2\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:35:569",
+                    "location": {
+                      "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                      "column": 569,
+                      "line": 35
+                    },
+                    "snippet": " \u001b[90m 33 |\u001b[39m  \u001b[36mawait\u001b[39m login(page\u001b[33m,\u001b[39m\u001b[32m'DEMO-ADMIN'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Crear franja'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Servicio'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mselectOption({index\u001b[33m:\u001b[39m\u001b[35m1\u001b[39m})\u001b[33m;\u001b[39m\u001b[36mconst\u001b[39m date\u001b[33m=\u001b[39m\u001b[36mnew\u001b[39m \u001b[33mDate\u001b[39m(\u001b[33mDate\u001b[39m\u001b[33m.\u001b[39mnow()\u001b[33m+\u001b[39m(\u001b[35m30\u001b[39m\u001b[33m+\u001b[39m\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mfloor(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mrandom()\u001b[33m*\u001b[39m\u001b[35m300\u001b[39m))\u001b[33m*\u001b[39m\u001b[35m86400000\u001b[39m)\u001b[33m.\u001b[39mtoISOString()\u001b[33m.\u001b[39mslice(\u001b[35m0\u001b[39m\u001b[33m,\u001b[39m\u001b[35m10\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Fecha y hora de Colombia'\u001b[39m)\u001b[33m.\u001b[39mfill(date\u001b[33m+\u001b[39m\u001b[32m'T16:20'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Guardar franja'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'status'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Franja creada'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Fecha'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mfill(date)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForURL(\u001b[36mnew\u001b[39m \u001b[33mRegExp\u001b[39m(date))\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Servicio'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mselectOption({index\u001b[33m:\u001b[39m\u001b[35m2\u001b[39m})\u001b[33m;\u001b[39m\u001b[36mconst\u001b[39m row\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'tr'\u001b[39m)\u001b[33m.\u001b[39mfilter({hasText\u001b[33m:\u001b[39m\u001b[32m'16:20'\u001b[39m})\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m row\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Bloquear'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(row\u001b[33m.\u001b[39mgetByText(\u001b[32m'Bloqueada'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m}))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m row\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Habilitar'\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(row\u001b[33m.\u001b[39mgetByText(\u001b[32m'Disponible'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m}))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 35 |\u001b[39m  \u001b[36mfor\u001b[39m(\u001b[36mconst\u001b[39m width \u001b[36mof\u001b[39m [\u001b[35m360\u001b[39m\u001b[33m,\u001b[39m\u001b[35m768\u001b[39m\u001b[33m,\u001b[39m\u001b[35m1366\u001b[39m]){\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize({width\u001b[33m,\u001b[39mheight\u001b[33m:\u001b[39m\u001b[35m950\u001b[39m})\u001b[33m;\u001b[39m\u001b[36mfor\u001b[39m(\u001b[36mconst\u001b[39m [route\u001b[33m,\u001b[39mname] \u001b[36mof\u001b[39m [[\u001b[32m'/admin/agenda'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'agenda'\u001b[39m]\u001b[33m,\u001b[39m[\u001b[32m'/admin/auditoria'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'audit'\u001b[39m]\u001b[33m,\u001b[39m[\u001b[32m'/admin/reportes'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'reports'\u001b[39m]]){\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(route)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39mdocument\u001b[33m.\u001b[39mfonts\u001b[33m.\u001b[39mready)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({path\u001b[33m:\u001b[39m\u001b[32m`output/playwright/${name}-${width}.png`\u001b[39m\u001b[33m,\u001b[39mfullPage\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39mexpect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39mdocument\u001b[33m.\u001b[39mdocumentElement\u001b[33m.\u001b[39mscrollWidth\u001b[33m<=\u001b[39minnerWidth))\u001b[33m.\u001b[39mtoBeTruthy()\u001b[33m;\u001b[39m\u001b[36mconst\u001b[39m a\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mAxeBuilder\u001b[39m({page})\u001b[33m.\u001b[39mwithTags([\u001b[32m'wcag2a'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'wcag2aa'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'wcag21aa'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'wcag22aa'\u001b[39m])\u001b[33m.\u001b[39manalyze()\u001b[33m;\u001b[39mexpect(a\u001b[33m.\u001b[39mviolations)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m}}\n \u001b[90m    |\u001b[39m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 36 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 37 |\u001b[39m test(\u001b[32m'T15 · CSRF rechaza solicitudes sin token y salida cierra rutas'\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page\u001b[33m,\u001b[39mrequest})\u001b[33m=>\u001b[39m{\n \u001b[90m 38 |\u001b[39m  \u001b[36mconst\u001b[39m response\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m'/citas'\u001b[39m\u001b[33m,\u001b[39m{data\u001b[33m:\u001b[39m{slot_id\u001b[33m:\u001b[39m\u001b[35m1\u001b[39m\u001b[33m,\u001b[39mrequest_key\u001b[33m:\u001b[39m\u001b[32m'a'\u001b[39m\u001b[33m,\u001b[39mconfirmed\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m}})\u001b[33m;\u001b[39mexpect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m419\u001b[39m)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                        "column": 569,
+                        "line": 35
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 52\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure elements that have scrollable content are accessible by keyboard in Safari\",\u001b[39m\n\u001b[31m+     \"help\": \"Scrollable region must have keyboard access\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"scrollable-region-focusable\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"focusable-content\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element should have focusable content\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"focusable-element\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element should be focusable\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element should have focusable content\u001b[39m\n\u001b[31m+   Element should be focusable\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"bar-chart\\\" role=\\\"img\\\" aria-label=\\\"13 de noviembre de 2026: 3 citas. 14 de noviembre de 2026: 1 citas. 16 de noviembre de 2026: 1 citas. 18 de noviembre de 2026: 1 citas. 20 de noviembre de 2026: 1 citas\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".bar-chart\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.keyboard\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag211\",\u001b[39m\n\u001b[31m+       \"wcag213\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT4.a\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.2.1.1\",\u001b[39m\n\u001b[31m+       \"EN-9.2.1.3\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-7.3.2\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  33 |  await login(page,'DEMO-ADMIN');await page.getByRole('button',{name:'Crear franja'}).click();await page.getByLabel('Servicio',{exact:true}).first().selectOption({index:1});const date=new Date(Date.now()+(30+Math.floor(Math.random()*300))*86400000).toISOString().slice(0,10);await page.getByLabel('Fecha y hora de Colombia').fill(date+'T16:20');await page.getByRole('button',{name:'Guardar franja'}).click();await expect(page.getByRole('status')).toContainText('Franja creada');\n  34 |  await page.getByLabel('Fecha',{exact:true}).fill(date);await page.waitForURL(new RegExp(date));await page.getByLabel('Servicio',{exact:true}).selectOption({index:2});const row=page.locator('tr').filter({hasText:'16:20'});await row.getByRole('button',{name:'Bloquear'}).click();await expect(row.getByText('Bloqueada',{exact:true})).toBeVisible();await row.getByRole('button',{name:'Habilitar'}).click();await expect(row.getByText('Disponible',{exact:true})).toBeVisible();\n> 35 |  for(const width of [360,768,1366]){await page.setViewportSize({width,height:950});for(const [route,name] of [['/admin/agenda','agenda'],['/admin/auditoria','audit'],['/admin/reportes','reports']]){await page.goto(route);await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:`output/playwright/${name}-${width}.png`,fullPage:true});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();expect(a.violations).toEqual([]);}}\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^\n  36 | });\n  37 | test('T15 · CSRF rechaza solicitudes sin token y salida cierra rutas',async({page,request})=>{\n  38 |  const response=await request.post('/citas',{data:{slot_id:1,request_key:'a',confirmed:true}});expect(response.status()).toBe(419);\n    at <SIAC-SG>\\tests\\e2e\\flows.spec.ts:35:569"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T03:06:47.456Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<SIAC-SG>\\test-results\\flows-T07–T09-·-administra-dd757-franja-auditoría-y-reportes\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<SIAC-SG>\\test-results\\flows-T07–T09-·-administra-dd757-franja-auditoría-y-reportes\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<SIAC-SG>\\test-results\\flows-T07–T09-·-administra-dd757-franja-auditoría-y-reportes\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<SIAC-SG>\\tests\\e2e\\flows.spec.ts",
+                    "column": 569,
+                    "line": 35
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "86d6a544053f1eb9f224-cc7bfc2630eac03df9eb",
+          "file": "flows.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "T15 · CSRF rechaza solicitudes sin token y salida cierra rutas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6835,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T03:07:27.876Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "86d6a544053f1eb9f224-6cca4969de011def78ae",
+          "file": "flows.spec.ts",
+          "line": 37,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-13T03:04:13.590Z",
+    "duration": 201801.922,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}

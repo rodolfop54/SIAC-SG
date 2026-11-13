@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-13T18:30:43.558Z",
+  "database": "siac_sg_test",
+  "scope": "5 carreras con dos procesos PHP independientes, canales web y bot, mismo servicio de negocio y franja.",
+  "results": [
+    {
+      "trial": 1,
+      "outcomes": [
+        "conflict",
+        "confirmed"
+      ],
+      "database": {
+        "active": 1,
+        "audits": 1
+      },
+      "passed": true
+    },
+    {
+      "trial": 2,
+      "outcomes": [
+        "conflict",
+        "confirmed"
+      ],
+      "database": {
+        "active": 1,
+        "audits": 1
+      },
+      "passed": true
+    },
+    {
+      "trial": 3,
+      "outcomes": [
+        "conflict",
+        "confirmed"
+      ],
+      "database": {
+        "active": 1,
+        "audits": 1
+      },
+      "passed": true
+    },
+    {
+      "trial": 4,
+      "outcomes": [
+        "conflict",
+        "confirmed"
+      ],
+      "database": {
+        "active": 1,
+        "audits": 1
+      },
+      "passed": true
+    },
+    {
+      "trial": 5,
+      "outcomes": [
+        "conflict",
+        "confirmed"
+      ],
+      "database": {
+        "active": 1,
+        "audits": 1
+      },
+      "passed": true
+    }
+  ]
+}
