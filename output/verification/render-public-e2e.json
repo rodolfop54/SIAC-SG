@@ -1,0 +1,198 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Rodolfo\\Apps\\SIAC-SG\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/patient-access.spec.ts",
+      "tests/e2e/rf10-regressions.spec.ts",
+      "--grep",
+      "Bot público: documento|RF10 público: ciclo completo",
+      "--timeout",
+      "180000"
+    ],
+    "configFile": "C:\\Users\\Rodolfo\\Apps\\SIAC-SG\\playwright.config.ts",
+    "rootDir": "C:/Users/Rodolfo/Apps/SIAC-SG/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Rodolfo/Apps/SIAC-SG/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/Rodolfo/Apps/SIAC-SG/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Rodolfo\\Apps\\SIAC-SG\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\Rodolfo\\Apps\\SIAC-SG\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Rodolfo\\Apps\\SIAC-SG\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "baseURL": "https://siac-sg.onrender.com",
+          "channel": "chrome",
+          "viewport": {
+            "width": 1366,
+            "height": 950
+          },
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "patient-access.spec.ts",
+      "file": "patient-access.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Bot público: documento, reserva sin cuenta y registro web con las mismas citas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24595,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T02:02:46.370Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4264c5dcbf2b9da1e363-d993b265d2255d099ce2",
+          "file": "patient-access.spec.ts",
+          "line": 9,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "rf10-regressions.spec.ts",
+      "file": "rf10-regressions.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "RF10 público: ciclo completo y sincronización de cambios entre ambos canales",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 45553,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T02:03:24.906Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e8593f6d52f781f9853a-7acaf2fa8c66a713d5f3",
+          "file": "rf10-regressions.spec.ts",
+          "line": 102,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-14T02:02:44.262Z",
+    "duration": 86692.735,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

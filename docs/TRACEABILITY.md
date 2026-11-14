@@ -2,6 +2,8 @@
 
 Fuente: objetivos específicos, tablas 5–7 y Anexo D del maestro de Fase 3. Las historias Jira se consultaron, sin modificar su estado.
 
+Verificación adicional del despliegue: dos recorridos Chrome aprobados sobre [Render Free](RENDER.md) para RF01 (registro/acceso de paciente), RF02–RF06 y RF10, con reserva anónima y sincronización entre canales. La matriz conserva las comprobaciones locales completas; RF07–RF09 y la concurrencia no se reejecutaron sobre Render.
+
 | Requisito | Historia | Implementación principal | Verificación |
 | --- | --- | --- | --- |
 | RF01 Acceso y roles | SCRUM-12 | AuthController, RoleMiddleware, IdleSession, Laravel session/CSRF | T01, T14, T15; regresión D01 en RequirementAuditTest y Chrome |

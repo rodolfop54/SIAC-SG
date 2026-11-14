@@ -1,0 +1,12 @@
+{
+  "plan": {
+    "databases": [
+      "siac-sg-db"
+    ],
+    "services": [
+      "siac-sg"
+    ],
+    "totalActions": 2
+  },
+  "valid": true
+}

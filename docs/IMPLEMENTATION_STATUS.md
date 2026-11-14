@@ -1,5 +1,15 @@
 # Estado de implementación
 
+## Demostración publicada en Render Free · 13 de noviembre de 2026
+
+[Portal](https://siac-sg.onrender.com) y [bot público sin sesión web](https://siac-sg.onrender.com/bot), con un servicio Docker y PostgreSQL 18, ambos `free` y en Oregon. El despliegue llegó a `live`; migraciones, semilla y arranque funcionaron. Se repitieron **43 pruebas de servidor / 1.196 aserciones en la base local de pruebas** y **dos recorridos Chrome sobre Render**, todos aprobados. Estos últimos comprueban reserva anónima, registro sobre la misma identidad y sincronización bidireccional de reprogramación/cancelación; no sustituyen la suite local completa de 16 escenarios ni acreditan flujos administrativos o carga en el destino. Evidencias y límites: [RENDER.md](RENDER.md).
+
+La base de Render es nueva e independiente de la local; portal y bot publicados sí comparten la misma base entre ellos. La web puede dormir a los 15 minutos y la base gratuita vence el 13 de diciembre de 2026, hora de Colombia. Se mantiene el alcance de laboratorio y datos sintéticos.
+
+## Acceso remoto temporal con Cloudflare
+
+Se prepararon y ejecutaron scripts para iniciar/detener un túnel HTTPS hacia un servidor PHP local separado, con depuración desactivada y cookies seguras. Portal y bot pueden abrirse desde otras redes mientras el equipo y el túnel estén activos. El servidor local habitual y `.env` se conservan. Se repitió la suite de servidor: **43 pruebas / 1.196 aserciones aprobadas**, incluyendo reconocimiento de HTTPS desde el proxy local y rechazo de cabeceras desde un origen no confiable. La prueba Chrome por el enlace público comprobó reserva anónima y activación de la misma cuenta/cita en web. Configuración, ejecución y alcance: [CLOUDFLARE.md](CLOUDFLARE.md). Esto no representa un despliegue de producción ni una nueva prueba de carga.
+
 ## Cierre verificado posterior a la auditoría · 13 de noviembre de 2026
 
 **RF01–RF10 verificados en el alcance del prototipo de laboratorio. D01, D02 y D03 cerrados.** El bot público continúa accesible sin inicio de sesión web en `/bot`, con identificación sintética y clave dentro del chat. Portal y bot comparten las mismas tablas PostgreSQL y servicios Laravel. No se reconstruyó la aplicación ni se cambió su identidad visual.
@@ -19,7 +29,7 @@ Resultado final ejecutado: **41/41 pruebas de servidor, 1.192 aserciones; 16/16 
 | RF09 Reportes | Completo en laboratorio | T09, periodo/servicio/estado/límites de día en RequirementAuditTest y pantalla administrativa Chrome |
 | RF10 Bot público simulado | Completo en laboratorio | T10; PatientAccessTest; BotSessionTest; regresiones D02/D03; ciclo sin sesión web y sincronización en rf10-regressions.spec.ts |
 
-No hay defectos funcionales abiertos reproducidos en este alcance tras la ejecución final. Permanecen pendientes la validación con participantes, lectores de pantalla/dispositivos físicos, instalación independiente, nuevas combinaciones de carreras y rollback, medición de carga de esta versión y despliegue posterior. No se declara identidad civil verificada ni aptitud para pacientes reales. Los recordatorios son a demanda y no hay tareas periódicas programadas.
+No hay defectos funcionales abiertos reproducidos en este alcance tras la ejecución final. Permanecen pendientes la validación con participantes, lectores de pantalla/dispositivos físicos, instalación independiente, nuevas combinaciones de carreras y rollback y medición de carga de esta versión. El despliegue de demostración en Render se completó posteriormente, con el alcance de verificación descrito al principio. No se declara identidad civil verificada ni aptitud para pacientes reales. Los recordatorios son a demanda y no hay tareas periódicas programadas.
 
 ## Auditoría previa de ejecución · 13 de noviembre de 2026
 
@@ -33,7 +43,7 @@ Se aplicó una migración aditiva sin borrar datos existentes. Número cifrado e
 
 Verificación de esta ampliación: 25 pruebas PHPUnit y 322 aserciones aprobadas; la suite completa Chrome aprobó 12 escenarios. Tras mejorar la primera vista del chat, se repitieron los cinco escenarios públicos/registro correspondientes. Resultados específicos en TEST_RESULTS y `output/verification/phpunit-patient-access.xml`. La evaluación de rendimiento anterior corresponde a las rutas privadas previas, no mide esta nueva identificación pública.
 
-Prototipo funcional local, construido directamente en el repositorio. Solo información ficticia. No hay publicación externa.
+Prototipo funcional local, construido directamente en el repositorio. Solo información ficticia. En esta entrega inicial no había acceso externo; posteriormente se habilitó el túnel temporal indicado al principio de este documento.
 
 | Incremento | Resultado implementado | Verificación realizada |
 | --- | --- | --- |
@@ -50,7 +60,7 @@ Las comprobaciones visuales se agruparon al disponer de cada recorrido funcional
 - Figma y Jira: accesibles y consultados. No se editaron archivos de diseño ni historias Jira.
 - Validación con diez participantes, satisfacción, éxito autónomo y tiempos de tarea: pendiente de ejecución por el equipo académico.
 - RNF09: pendiente instalación independiente por otro integrante. La ejecución local y los archivos lock no sustituyen esa comprobación.
-- Despliegue posterior: Docker/Nginx preparados, sin ejecución Docker en este equipo. Falta elegir destino, HTTPS y comprobarlo allí.
+- Despliegue: Docker/Nginx publicados en Render con HTTPS y dos recorridos públicos aprobados. Compose local sigue sin ejecutarse. Pendientes en el destino: suite administrativa, concurrencia, carga y gestión del vencimiento de PostgreSQL Free.
 - Accesibilidad: evidencia automática y teclado en alcance definido; no se declara conformidad total WCAG 2.2 AA ni se probaron dispositivos físicos/lectores de pantalla.
 - Rendimiento: se informa exclusivamente el ensayo y escenario medidos en TEST_RESULTS, incluidas limitaciones del servidor PHP local.
 

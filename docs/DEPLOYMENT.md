@@ -1,8 +1,10 @@
-# Preparación para despliegue posterior
+# Despliegue de demostración y alternativa con Compose
 
-No hay despliegue publicado. Docker y Compose no están instalados en el equipo de implementación, por lo que esta ruta permanece **preparada y no ejecutada**. El despliegue deberá comprobarse en el servidor elegido.
+La demostración académica está publicada en [Render Free](https://siac-sg.onrender.com), con [bot público](https://siac-sg.onrender.com/bot), HTTPS y PostgreSQL 18 compartido entre ambos canales. La imagen Docker se construyó en Render y se ejecutaron dos recorridos Chrome sobre el servicio real. Configuración, resultados y vencimiento de la base gratuita: [RENDER.md](RENDER.md). Esto no acredita aptitud para atención clínica real.
 
-## Contenedores propuestos
+El acceso HTTPS temporal al servidor local mediante [Cloudflare](CLOUDFLARE.md) permanece como alternativa. Docker y Compose no están instalados en el equipo de implementación: **la variante Compose local sigue sin ejecutarse**, aunque la etapa Docker específica de Render ya fue construida y publicada.
+
+## Alternativa Compose pendiente de ejecución
 
 `Dockerfile` tiene etapas de assets Node, aplicación PHP-FPM y web Nginx. Compose conecta Nginx, PHP-FPM y PostgreSQL 18 por red interna. Solo publica el puerto web en `127.0.0.1:8080`; PostgreSQL no se publica. El volumen nombrado conserva la base. Los assets compilados se copian a Nginx para servirlos sin pasar por PHP.
 

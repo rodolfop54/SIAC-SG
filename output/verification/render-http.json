@@ -1,0 +1,32 @@
+[
+  {
+    "status": 200,
+    "path": "/",
+    "location": ""
+  },
+  {
+    "status": 200,
+    "path": "/bot",
+    "location": ""
+  },
+  {
+    "status": 200,
+    "path": "/registro",
+    "location": ""
+  },
+  {
+    "status": 302,
+    "path": "/mis-citas",
+    "location": "https://siac-sg.onrender.com/acceso?ended=1"
+  },
+  {
+    "status": 403,
+    "path": "/.env",
+    "location": ""
+  },
+  {
+    "status": 200,
+    "path": "/up",
+    "location": ""
+  }
+]

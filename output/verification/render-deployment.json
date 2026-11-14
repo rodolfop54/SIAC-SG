@@ -1,0 +1,36 @@
+{
+  "service": {
+    "id": "srv-dbrrvkm1egvs73c3a91g",
+    "name": "siac-sg",
+    "type": "web_service",
+    "url": "https://siac-sg.onrender.com",
+    "plan": "free",
+    "repo": "https://github.com/rodolfop54/SIAC-SG",
+    "branch": "main",
+    "autoDeploy": "no",
+    "region": "oregon"
+  },
+  "database": {
+    "id": "dpg-dbrrvbm1egvs73c39e60-a",
+    "name": "siac-sg-db",
+    "status": "available",
+    "plan": "free",
+    "region": "oregon",
+    "version": "18",
+    "expiresAt": "2026-12-14T01:55:59.133306Z"
+  },
+  "deployment": {
+    "commit": {
+      "createdAt": "2026-11-14T01:46:17Z",
+      "id": "b278c97ea6e9197141ae1ec2195293de17af1cbc",
+      "message": "Prepare SIAC-SG deployment on Render Free with PostgreSQL"
+    },
+    "createdAt": "2026-11-14T01:56:35.785739Z",
+    "finishedAt": "2026-11-14T02:00:13.278208Z",
+    "id": "dep-dbrrvku1egvs73c3a9qg",
+    "startedAt": "2026-11-14T01:56:35.780408Z",
+    "status": "live",
+    "trigger": "blueprint_sync",
+    "updatedAt": "2026-11-14T02:00:44.010943Z"
+  }
+}

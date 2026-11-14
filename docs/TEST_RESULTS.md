@@ -1,5 +1,22 @@
 # Registro de pruebas técnicas
 
+## Despliegue Render Free · 13 de noviembre de 2026
+
+Commit de aplicación `b278c97ea6e9197141ae1ec2195293de17af1cbc`, servicio `https://siac-sg.onrender.com`, despliegue `live`. Construcción real Docker, migraciones, semilla, Nginx/PHP-FPM y `/up` correctos en Render. Web y PostgreSQL confirmados en plan gratuito.
+
+| Comprobación ejecutada | Resultado y alcance | Evidencia |
+| --- | --- | --- |
+| Suite de servidor antes de publicar | 43 aprobadas / 1.196 aserciones; PostgreSQL local de pruebas | [JUnit](../output/verification/render-predeploy-phpunit.xml) |
+| Compilación y configuración | TypeScript/Vite correctos; `bash -n` correcto; Blueprint válido; imagen construida en Render | [Validación](../output/verification/render-blueprint-validation.json), [despliegue](../output/verification/render-deployment.json) |
+| Chrome contra Render | Dos aprobados, cero fallos/omitidos/reintentos, 86,7s: bot anónimo, reserva, registro vinculado, consulta/recordatorios, reprogramación/cancelación en ambos sentidos y salida | [JSON](../output/verification/render-public-e2e.json) |
+| HTTPS y acceso público | Inicio/bot/registro/up 200; Mis citas redirige por HTTPS; `.env` 403; cookie Secure/HttpOnly | [HTTP](../output/verification/render-http.json), [cookie sin valores](../output/verification/render-cookies.json) |
+
+Las pruebas remotas crearon únicamente perfiles y citas de laboratorio. No se ejecutaron contra Render la suite completa de 16 escenarios, flujos administrativos, concurrencia ni carga. Los resultados locales históricos conservan su alcance. Configuración, credenciales administrativas y límites gratuitos: [RENDER.md](RENDER.md).
+
+## Acceso remoto temporal por Cloudflare
+
+Se comprobó el túnel HTTPS real hacia el equipo local. **43 pruebas de servidor / 1.196 aserciones aprobadas** tras agregar dos regresiones de proxy: reconocimiento de HTTPS desde loopback y rechazo de cabeceras reenviadas desde un origen no confiable. Se ejecutó un escenario Chrome de reserva pública y activación web sobre el primer enlace y se repitió sobre el enlace final después de probar apagado/reinicio; **una prueba aprobada en cada ejecución**. El enlace final también respondió 200 en inicio/bot/registro, redirección HTTPS en Mis citas, 404 en `/.env` y cookie de sesión Secure/HttpOnly. No se repitió la suite completa de 16 escenarios ni carga por Internet. Resultados: [servidor](../output/verification/cloudflare-phpunit.xml), [Chrome final](../output/verification/cloudflare-public-e2e.json), [HTTP](../output/verification/cloudflare-http.json). Operación y límites en [CLOUDFLARE.md](CLOUDFLARE.md).
+
 ## Cierre D01–D03 y bot público · 13 de noviembre de 2026
 
 Versión final comprobada mediante ejecución real, después de corregir los defectos de la auditoría:

@@ -1,6 +1,8 @@
 # SIAC-SG en Render Free
 
-Configuración preparada para el repositorio privado `rodolfop54/SIAC-SG`, rama `main`. El Blueprint raíz `render.yaml` define solo dos recursos gratuitos: el servicio web `siac-sg` y PostgreSQL 18 `siac-sg-db`, ambos en Oregon. No crea workers, cron, Redis, discos, réplicas ni planes de pago.
+Despliegue publicado y comprobado el 13 de noviembre de 2026 (America/Bogota): [portal](https://siac-sg.onrender.com) y [bot público](https://siac-sg.onrender.com/bot). Funciona sin mantener encendido el equipo local. El repositorio privado es `rodolfop54/SIAC-SG`, rama `main`. El Blueprint raíz `render.yaml` creó solo dos recursos gratuitos: el servicio web `siac-sg` y PostgreSQL 18 `siac-sg-db`, ambos en Oregon. No crea workers, cron, Redis, discos, réplicas ni planes de pago.
+
+Servicio `srv-dbrrvkm1egvs73c3a91g`, despliegue `dep-dbrrvku1egvs73c3a9qg` en estado `live`, commit de código `b278c97ea6e9197141ae1ec2195293de17af1cbc`. Base `dpg-dbrrvbm1egvs73c39e60-a`, estado `available`. Los dos recursos indican `plan: free`. La base vence el **13 de diciembre de 2026 a las 20:55, hora de Colombia** (`2026-12-14T01:55:59Z`). Metadatos sin credenciales: [registro](../output/verification/render-deployment.json).
 
 ## Arquitectura
 
@@ -16,11 +18,12 @@ Al iniciar, el contenedor aplica migraciones y la semilla sintética idempotente
 
 El servicio define `APP_ENV=production`, `APP_DEBUG=false`, cookies Secure, sesiones cifradas y logs a stderr. `APP_URL` se obtiene de `RENDER_EXTERNAL_URL`. En Render se configura `TRUSTED_PROXIES=*` para reconocer esquema, puerto e IP de su proxy; no se confía en X-Forwarded-Host en ese modo. Fuera de Render permanece la confianza limitada a loopback, compatible con Cloudflare. Los archivos `.env`, runtimes y herramientas locales no entran en la imagen.
 
-## Crear el Blueprint
+## Creación realizada y futuras instalaciones
 
 1. Conectar Render al repositorio privado, autorizando únicamente los repositorios necesarios.
 2. Abrir [el Blueprint de SIAC-SG](https://dashboard.render.com/blueprint/new?repo=https://github.com/rodolfop54/SIAC-SG).
 3. Elegir `Rodolfo's workspace`, rama `main` y archivo `render.yaml`.
+   Para el nombre del Blueprint se utilizó `SIAC-SG`.
 4. Comprobar que **web y base indican Free** y aplicar el Blueprint.
 5. Esperar a que la base esté disponible y el despliegue web termine en `live`; después probar `/`, `/bot`, `/registro`, acceso, reserva y relación de citas entre canales.
 
@@ -35,7 +38,22 @@ La web se suspende tras 15 minutos sin tráfico y puede tardar aproximadamente u
 - Blueprint aceptado por `render blueprints validate render.yaml`: [resultado](../output/verification/render-blueprint-validation.json).
 - Suite de servidor: 43 pruebas y 1.196 aserciones aprobadas: [JUnit](../output/verification/render-predeploy-phpunit.xml).
 - Sintaxis de `deploy/render/start.sh` comprobada con `bash -n`; formato PHP comprobado.
-- La compilación TypeScript/Vite se comprueba antes de publicar los archivos de despliegue.
-- Docker no está instalado en el equipo; la construcción del contenedor y la verificación del servicio real deben completarse en Render. Una validación de YAML no acredita un despliegue funcional.
+- Compilación TypeScript/Vite ejecutada correctamente antes de publicar los archivos de despliegue.
+- Docker no está instalado en el equipo; la imagen se construyó correctamente en Render. Sus logs confirmaron migraciones, semilla, arranque de Nginx/PHP-FPM y health check `/up` con HTTP 200 antes de llegar a `live`.
+
+## Verificación sobre el servicio publicado
+
+Se ejecutaron **dos escenarios Chrome, ambos aprobados sin omitidos ni reintentos**, contra `https://siac-sg.onrender.com`, en 86,7 segundos. Crearon perfiles sintéticos nuevos, reservaron desde el bot sin sesión web, activaron el portal sobre la misma identidad y comprobaron consulta, recordatorios simulados, reprogramación, cancelación, salida y sincronización de cambios en ambos sentidos. Evidencia: [JSON de Chrome](../output/verification/render-public-e2e.json).
+
+Comando ejecutado en PowerShell:
+
+```powershell
+$env:SIAC_BASE_URL='https://siac-sg.onrender.com'
+npm.cmd run test:e2e -- tests/e2e/patient-access.spec.ts tests/e2e/rf10-regressions.spec.ts --grep 'Bot público: documento|RF10 público: ciclo completo' --timeout 180000
+```
+
+Inicio, bot, registro y `/up` respondieron 200; Mis citas sin sesión redirigió por HTTPS al acceso; `/.env` devolvió 403. La cookie de sesión lleva Secure y HttpOnly. Evidencias: [HTTP](../output/verification/render-http.json) y [atributos de cookie, sin sus valores](../output/verification/render-cookies.json).
+
+Las 43 pruebas de servidor se ejecutaron contra la base local separada de pruebas, no contra la base compartida de Render. En Render se ejecutó únicamente la selección de dos recorridos públicos descrita; no se repitieron allí los 16 escenarios completos, los flujos administrativos, concurrencia ni carga. Los resultados históricos locales de RF01–RF10 conservan su alcance. No se ha medido rendimiento bajo tráfico concurrente en el plan gratuito. Los recorridos remotos dejan datos de laboratorio; no incluyen datos personales reales. No ejecutes la suite completa sobre Render sin preparar una base aislada y credenciales específicas.
 
 Fuentes actuales: [plan gratuito](https://render.com/docs/free), [Blueprint](https://render.com/docs/blueprint-spec), [Laravel y Docker](https://render.com/docs/deploy-php-laravel-docker), [CLI](https://render.com/docs/cli).

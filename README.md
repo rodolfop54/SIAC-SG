@@ -6,17 +6,6 @@ Sistema de Información para la Administración de Citas. Prototipo funcional de
 
 Incluye acceso por roles, disponibilidad desde PostgreSQL, reserva con revisión y confirmación, historial propio, reprogramación, cancelación, gestión administrativa de franjas, auditoría, reportes filtrables con exportación CSV y bot guiado con recordatorios internos únicos.
 
-## Guía de la versión académica
-
-- [Historial de cambios](CHANGELOG.md)
-- [Arquitectura y modelo de datos](docs/ARCHITECTURE.md)
-- [Demostración por roles y canales](docs/DEMO.md)
-- [Trazabilidad de requisitos](docs/TRACEABILITY.md)
-- [Resultados de pruebas y límites](docs/TEST_RESULTS.md)
-- [Preparación de despliegue](docs/DEPLOYMENT.md)
-
-Para iniciar una copia, clona el repositorio y abre PowerShell en la carpeta clonada. Sigue «Ejecución local en Windows» para preparar dependencias, generar configuración local y arrancar la aplicación. Los archivos de `output/verification` y `output/playwright` documentan las ejecuciones del laboratorio.
-
 ## Bot público y pacientes
 
 **Decisión de RF10 confirmada:** el bot es un canal principal público, sin inicio de sesión web previo. Usa identificadores sintéticos con prefijo **LAB** o **FICT**, por ejemplo `LAB000001`; no introduzcas documentos reales. La clave del perfil se exige para recuperar citas existentes. Menú/salida funcionan en cualquier paso y las opciones activas pertenecen a la sesión actual. Arquitectura, limitaciones y resultados de las correcciones D01–D03 en [RF10_PUBLIC_BOT.md](docs/RF10_PUBLIC_BOT.md).
@@ -25,7 +14,23 @@ Abre **http://127.0.0.1:8000/bot** sin iniciar sesión. El chat tiene aspecto Wh
 
 El registro web es opcional en **/registro**. Usa el mismo tipo y número de documento: se activa la cuenta sobre el perfil existente y conserva todas sus citas. Desde la sesión verificada del bot la vinculación es directa; desde otro dispositivo se pide la clave previa. La contraseña elegida al registrarte pasa a funcionar en ambos canales. **El documento solo no da acceso al historial.** El número se guarda cifrado, con un índice HMAC único, y no aparece en la transcripción del chat.
 
-En **/acceso**, los pacientes entran con documento y contraseña. Para las cuentas sintéticas anteriores y el administrador, selecciona **Cuentas de demostración** y usa el alias de `.runtime/demo-access.txt`. Todos los datos siguen siendo ficticios; no se comprueban documentos contra la Registraduría ni se conecta WhatsApp real. «Público» significa acceso sin cuenta; el despliegue en Internet sigue siendo una tarea posterior.
+En **/acceso**, los pacientes entran con documento y contraseña. Para las cuentas sintéticas anteriores y el administrador, selecciona **Cuentas de demostración** y usa el alias de `.runtime/demo-access.txt`. Todos los datos siguen siendo ficticios; no se comprueban documentos contra la Registraduría ni se conecta WhatsApp real. El bot no exige cuenta web. Puede compartirse temporalmente por Internet mediante el túnel descrito abajo; el despliegue de producción sigue pendiente.
+
+## Compartir con personas en otras redes
+
+Se preparó Cloudflare para compartir esta instalación local por un enlace HTTPS temporal:
+
+```powershell
+.\scripts\start-cloudflare.ps1
+```
+
+El comando muestra el enlace público y mantiene los procesos en segundo plano. Agrega `/bot` para entrar directamente al chat. El computador debe estar encendido y con Internet. Para cerrar el acceso:
+
+```powershell
+.\scripts\stop-cloudflare.ps1
+```
+
+El enlace cambia al reiniciar. Instrucciones, configuración y comprobaciones: [CLOUDFLARE.md](docs/CLOUDFLARE.md).
 
 ## Ejecución local en Windows
 
@@ -84,7 +89,7 @@ npm.cmd run build
 npm.cmd run test:e2e
 ```
 
-`artisan test` y las carreras de concurrencia utilizan exclusivamente `siac_sg_test`. Las pruebas de navegador usan las cuentas sintéticas de la base local y dejan actividad demostrable en su historial; no deben ejecutarse sobre un despliegue compartido. Si no tienes Chrome, instala Chromium con Playwright y ajusta `channel` en `playwright.config.ts`.
+`artisan test` y las carreras de concurrencia utilizan exclusivamente `siac_sg_test`. La suite completa de navegador usa las cuentas sintéticas de la base local y deja actividad demostrable en su historial; no debe ejecutarse sobre un despliegue compartido sin aislamiento. La selección específica de dos escenarios públicos verificada en Render está documentada en [RENDER.md](docs/RENDER.md). Si no tienes Chrome, instala Chromium con Playwright y ajusta `channel` en `playwright.config.ts`.
 
 Para la medición de cinco minutos con diez sesiones, sin reconstruir assets durante la ejecución:
 
@@ -107,10 +112,14 @@ php artisan siac:recordatorios --at="2026-12-01T08:00:00-05:00"
 
 El segundo ejemplo es un reloj explícito de prueba, no un dato de operación. Se seleccionan citas confirmadas dentro de las siguientes 24 horas. Un índice único impide repetir un recordatorio para la misma cita y franja. Se guardan únicamente en `simulated_messages`.
 
-## Entrega y despliegue posterior
+## Demostración publicada y despliegue
 
 Laravel 13.42, React 19, Inertia Laravel 3.7 / React 3.11, Tailwind 4 y PostgreSQL 18. Las versiones exactas instaladas se conservan en `composer.lock` y `package-lock.json`. PHP 8.4 cumple el mínimo de Laravel 13. [Requisitos oficiales](https://laravel.com/framework/docs/13.x/releases).
 
-Se incluyen `Dockerfile`, `compose.yaml` y Nginx para preparar un despliegue posterior. **La configuración Docker no se ejecutó en este equipo porque Docker no está instalado; no se publicó ningún servidor.** Revisa [DEPLOYMENT.md](docs/DEPLOYMENT.md) antes de usarla.
+La demostración está publicada en **[Render Free](https://siac-sg.onrender.com)**; el **[bot público](https://siac-sg.onrender.com/bot)** permite comenzar sin cuenta web. Usa exclusivamente datos sintéticos con prefijo LAB/FICT y una clave propia. Ambos canales comparten PostgreSQL en Render y funcionan sin mantener encendido el computador local. El contenedor fue construido en Render y dos recorridos Chrome comprobaron reserva, registro opcional y sincronización bidireccional.
+
+La web gratuita se suspende tras 15 minutos sin tráfico; su primer acceso puede tardar alrededor de un minuto. La base gratuita vence el **13 de diciembre de 2026, hora de Colombia**. Detalles, evidencias y acceso administrativo: [RENDER.md](docs/RENDER.md). Las contraseñas locales no son las de Render. No se habilitaron recursos de pago.
+
+Se conservan `compose.yaml` y los targets Docker previos para otra instalación. Compose no se ejecutó en este equipo porque Docker no está instalado. El [túnel Cloudflare](docs/CLOUDFLARE.md) es una alternativa temporal hacia la base local independiente. Revisa [DEPLOYMENT.md](docs/DEPLOYMENT.md) para distinguir ambas instalaciones.
 
 Documentación: [arquitectura](docs/ARCHITECTURE.md), [trazabilidad](docs/TRACEABILITY.md), [estado](docs/IMPLEMENTATION_STATUS.md), [referencias visuales](docs/DESIGN_REFERENCES.md), [decisiones](docs/DECISIONS.md) y [demostración](docs/DEMO.md).
