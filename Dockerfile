@@ -21,3 +21,16 @@ CMD ["php-fpm"]
 FROM nginx:1.28-alpine AS web
 COPY deploy/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=app /var/www/html/public /var/www/html/public
+
+# Render runs one free web service: Nginx and PHP-FPM share this container.
+FROM app AS render
+USER root
+RUN apk add --no-cache nginx supervisor gettext && \
+    printf 'memory_limit=128M\nlog_errors=On\nerror_log=/proc/self/fd/2\n' > /usr/local/etc/php/conf.d/render.ini && \
+    printf '[www]\npm=ondemand\npm.max_children=3\npm.process_idle_timeout=10s\npm.max_requests=200\n' > /usr/local/etc/php-fpm.d/zz-render.conf
+COPY deploy/render/nginx.conf.template /etc/siac-nginx.conf.template
+COPY deploy/render/supervisord.conf /etc/siac-supervisord.conf
+RUN chmod +x deploy/render/start.sh
+USER www-data
+EXPOSE 10000
+ENTRYPOINT ["sh", "/var/www/html/deploy/render/start.sh"]

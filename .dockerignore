@@ -1,5 +1,10 @@
 .git
 .env
+.env.*
+.agents
+.codex
+.aws
+.playwright-cli
 .runtime
 node_modules
 vendor

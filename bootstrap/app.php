@@ -17,6 +17,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $proxySetting = env('TRUSTED_PROXIES', '127.0.0.1,::1');
+        $proxyHeaders = Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_PORT | Request::HEADER_X_FORWARDED_PROTO;
+        if ($proxySetting !== '*') {
+            $proxyHeaders |= Request::HEADER_X_FORWARDED_HOST;
+        }
+        $middleware->trustProxies(
+            at: $proxySetting === '*' ? '*' : explode(',', $proxySetting),
+            headers: $proxyHeaders,
+        );
         $middleware->trimStrings(except: ['message']);
         $middleware->web(append: [IdleSession::class, HandleInertiaRequests::class, SecurityHeaders::class]);
         $middleware->alias(['role' => RoleMiddleware::class]);
