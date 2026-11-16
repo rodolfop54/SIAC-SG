@@ -4,6 +4,8 @@ Sistema de Información para la Administración de Citas. Prototipo funcional de
 
 **Solo datos ficticios. No está conectado al Hospital de Sabanagrande ni a servicios sanitarios o de mensajería. Ninguna reserva es una cita médica real.**
 
+**[Abrir la demostración de SIAC-SG en Render](https://siac-sg.onrender.com/)**. La primera carga puede tardar mientras se inicia el servicio.
+
 Incluye acceso por roles, disponibilidad desde PostgreSQL, reserva con revisión y confirmación, historial propio, reprogramación, cancelación, gestión administrativa de franjas, auditoría, reportes filtrables con exportación CSV y bot guiado con recordatorios internos únicos.
 
 ## Bot público y pacientes
