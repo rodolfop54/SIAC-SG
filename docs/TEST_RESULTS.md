@@ -1,5 +1,13 @@
 # Registro de pruebas técnicas
 
+## Perfil y navegación del portal · 20 de noviembre de 2026
+
+**63 pruebas de servidor / 1.503 aserciones aprobadas y 22 escenarios Chrome aprobados en una ejecución secuencial (5,7 minutos), sin fallos, omisiones ni reintentos.** TypeScript/Vite, Pint y Prettier correctos. Perfil revisado visualmente y con Axe/reflujo a 360, 768 y 1366 px. Evidencia sin credenciales: [registro de esta ejecución](evidence/profile-2026-11-20.json).
+
+Las nueve pruebas nuevas de servidor comprueban dueño y rol de paciente, conservación del documento/citas/contraseña, actualización del nombre, confirmación reciente de acceso por contraseña o código, cambio de correo solo después de verificarlo, cinco intentos, vencimiento, uso único, cancelación, aislamiento entre propósitos y pacientes, fallo del proveedor e invalidación de accesos previos. Los cuatro escenarios nuevos de navegador comprueban el nombre después de recargar, su presencia en la navegación, la ausencia del bot en el menú privado y la accesibilidad de la pantalla de perfil. Las regresiones del bot ahora entran por su URL pública independiente y siguen comprobando sincronización con la web.
+
+Alcance: PostgreSQL y servidor locales aislados; Brevo interceptado en las pruebas de servidor y desactivado en las de navegador. El cambio completo de un correo real requiere una nueva dirección controlada por el titular y no se contabiliza como ejecutado por estas pruebas. No se repitieron carga ni concurrencia ni se acredita usabilidad con participantes o TRL. Reglas: [PROFILE.md](PROFILE.md). Los resultados anteriores conservan su alcance.
+
 ## Correo real y cuenta compartida en Render · 20 de noviembre de 2026
 
 Despliegue de código `228d22e9939a4ac0ed968770238ec9dd45c027bd`, correo activado mediante Environment y despliegue `dep-dc0eidrm8hqs73e8jurg` en estado `live`. Brevo Free, remitente verificado y clave restringida a emails transaccionales, guardada de forma privada en Render. El propietario confirmó la recepción del primer correo de conexión y Brevo registró su entrega.

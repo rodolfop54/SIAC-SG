@@ -41,7 +41,7 @@ class RegistrationController extends Controller
         $user = $identity->register($data, $verified, $request->ip());
         Auth::login($user);
         $request->session()->regenerate();
-        $request->session()->put(['last_activity' => now()->timestamp, 'auth_version' => $user->auth_version]);
+        $request->session()->put(['last_activity' => now()->timestamp, 'auth_version' => $user->auth_version, 'auth_confirmed_at' => now()->timestamp]);
 
         return redirect('/mis-citas')->with('success', 'Tu cuenta web está lista. Tus reservas del bot ya están vinculadas a tu documento.');
     }

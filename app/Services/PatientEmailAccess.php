@@ -77,6 +77,9 @@ class PatientEmailAccess
 
     public function consume(string $id, string $token, string $purpose = 'access', ?string $password = null): User
     {
+        if (! Str::isUuid($id)) {
+            throw ValidationException::withMessages(['code' => 'Solicita un código o enlace nuevo para continuar.']);
+        }
         try {
             $result = DB::transaction(function () use ($id, $token, $purpose, $password) {
                 $challenge = PatientAccessChallenge::whereKey($id)->lockForUpdate()->first();

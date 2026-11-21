@@ -18,6 +18,12 @@ Con el correo activado, la primera visita pide documento ficticio, nombre de pru
 
 En **/acceso**, los pacientes entran con documento y contraseña. Para las cuentas sintéticas anteriores y el administrador, selecciona **Cuentas de demostración** y usa el alias de `.runtime/demo-access.txt`. No se comprueban documentos contra la Registraduría. Hay una demostración de laboratorio en Render, enlazada arriba; el túnel descrito abajo es una alternativa local. Arquitectura y regresiones del bot: [RF10_PUBLIC_BOT.md](docs/RF10_PUBLIC_BOT.md).
 
+## Perfil del paciente
+
+El menú del portal contiene **Disponibilidad**, **Mis citas** y **Mi perfil**. El bot conserva su entrada pública independiente en `/bot`.
+
+En `/perfil` se puede editar el nombre y cambiar el correo. La dirección actual sigue activa hasta verificar un código enviado al nuevo buzón. Si el acceso no se confirmó en los últimos cinco minutos, se pide la contraseña actual o un código al correo ya verificado. Confirmar un correo nuevo conserva paciente, documento y citas e invalida los accesos anteriores. El documento se muestra protegido y no se cambia desde este formulario. La opción de contraseña utiliza el enlace de recuperación existente. Reglas y comprobaciones: [PROFILE.md](docs/PROFILE.md).
+
 ## Compartir con personas en otras redes
 
 Se preparó Cloudflare para compartir esta instalación local por un enlace HTTPS temporal:

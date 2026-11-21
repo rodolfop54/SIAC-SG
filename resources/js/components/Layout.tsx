@@ -4,7 +4,7 @@ import {
   ArrowUpRight,
   CalendarDays,
   ClipboardList,
-  MessageCircle,
+  UserRound,
   ShieldCheck,
   ChartNoAxesCombined,
   History,
@@ -53,7 +53,7 @@ export default function Layout({
       : ([
           ['/disponibilidad', 'Disponibilidad', CalendarDays],
           ['/mis-citas', 'Mis citas', ClipboardList],
-          ['/bot', 'Bot público', MessageCircle],
+          ['/perfil', 'Mi perfil', UserRound],
         ] as const);
   return (
     <>
@@ -96,11 +96,11 @@ export default function Layout({
               {auth.user?.role === 'admin' ? (
                 <ShieldCheck size={19} />
               ) : (
-                auth.user?.alias.replace('DEMO-', '').slice(0, 1)
+                auth.user?.name.slice(0, 1).toUpperCase()
               )}
             </span>
             <div>
-              <strong>{auth.user?.alias}</strong>
+              <strong title={auth.user?.name}>{auth.user?.name}</strong>
               <small>
                 {auth.user?.role === 'admin' ? 'Administrador de prueba' : 'Usuario de prueba'}
               </small>

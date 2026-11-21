@@ -1,0 +1,143 @@
+{
+  "date_bogota": "2026-11-20",
+  "scope": "Isolated local PostgreSQL and Chrome; Brevo intercepted in server tests and disabled in local browser tests.",
+  "server": {
+    "tests": 63,
+    "assertions": 1503,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "expected": 22,
+    "unexpected": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "duration": 339689.00200000004
+  },
+  "scenarios": [
+    {
+      "title": "T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado",
+      "status": "passed",
+      "duration_ms": 13128
+    },
+    {
+      "title": "T10 · bot reserva y cancela, información compartida con web",
+      "status": "passed",
+      "duration_ms": 13150
+    },
+    {
+      "title": "T11–T13 · reflujo, accesibilidad y capturas a 360px",
+      "status": "passed",
+      "duration_ms": 8704
+    },
+    {
+      "title": "T11–T13 · reflujo, accesibilidad y capturas a 768px",
+      "status": "passed",
+      "duration_ms": 9115
+    },
+    {
+      "title": "T11–T13 · reflujo, accesibilidad y capturas a 1366px",
+      "status": "passed",
+      "duration_ms": 8447
+    },
+    {
+      "title": "T07–T09 · administración, filtros, crear franja, auditoría y reportes",
+      "status": "passed",
+      "duration_ms": 21047
+    },
+    {
+      "title": "T15 · CSRF rechaza solicitudes sin token y salida cierra rutas",
+      "status": "passed",
+      "duration_ms": 4295
+    },
+    {
+      "title": "Bot público: cuenta compartida y acceso web directo con las mismas citas",
+      "status": "passed",
+      "duration_ms": 14856
+    },
+    {
+      "title": "Bot WhatsApp público y registro: accesibilidad a 360px",
+      "status": "passed",
+      "duration_ms": 3197
+    },
+    {
+      "title": "Bot WhatsApp público y registro: accesibilidad a 768px",
+      "status": "passed",
+      "duration_ms": 3326
+    },
+    {
+      "title": "Bot WhatsApp público y registro: accesibilidad a 1366px",
+      "status": "passed",
+      "duration_ms": 3193
+    },
+    {
+      "title": "Perfil: editar nombre conserva la sesión y la navegación del portal no muestra el bot",
+      "status": "passed",
+      "duration_ms": 7661
+    },
+    {
+      "title": "Perfil: accesibilidad y reflujo a 360px",
+      "status": "passed",
+      "duration_ms": 3723
+    },
+    {
+      "title": "Perfil: accesibilidad y reflujo a 768px",
+      "status": "passed",
+      "duration_ms": 3831
+    },
+    {
+      "title": "Perfil: accesibilidad y reflujo a 1366px",
+      "status": "passed",
+      "duration_ms": 3922
+    },
+    {
+      "title": "T11–T13 · inicio, acceso y recuperación pública a 360px",
+      "status": "passed",
+      "duration_ms": 9073
+    },
+    {
+      "title": "T11–T13 · inicio, acceso y recuperación pública a 768px",
+      "status": "passed",
+      "duration_ms": 9185
+    },
+    {
+      "title": "T11–T13 · inicio, acceso y recuperación pública a 1366px",
+      "status": "passed",
+      "duration_ms": 9746
+    },
+    {
+      "title": "D01: bloqueo por documento muestra el aviso y la espera",
+      "status": "passed",
+      "duration_ms": 18161
+    },
+    {
+      "title": "D02: comandos globales y rechazo de números reales durante identificación",
+      "status": "passed",
+      "duration_ms": 16846
+    },
+    {
+      "title": "RF10 público: ciclo completo y sincronización de cambios entre ambos canales",
+      "status": "passed",
+      "duration_ms": 102945
+    },
+    {
+      "title": "D03: nueva sesión, historial, navegación y acciones antiguas mantienen opciones vigentes",
+      "status": "passed",
+      "duration_ms": 35813
+    }
+  ],
+  "checks": [
+    "Profile name persists on reload and appears in portal navigation",
+    "No public bot link in private portal navigation",
+    "Profile reflow and Axe at 360, 768 and 1366 pixels",
+    "Email remains unchanged until verified, with expiry, attempts, purpose and owner checks",
+    "Recent authentication required and earlier sessions/codes revoked after verified email change",
+    "Appointment ownership, document and role remain unchanged"
+  ],
+  "build": "TypeScript and Vite passed; Pint and Prettier passed.",
+  "limits": [
+    "No real mailbox was changed during this local verification",
+    "No human usability evaluation or TRL claim"
+  ]
+}

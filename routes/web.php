@@ -5,6 +5,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\PatientEmailAccessController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,6 +32,13 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/salir', [AuthController::class, 'logout']);
     Route::middleware('role:user')->group(function () {
+        Route::get('/perfil', [ProfileController::class, 'show']);
+        Route::patch('/perfil', [ProfileController::class, 'updateName'])->middleware('throttle:20,1,profile-name')->block(10, 10);
+        Route::post('/perfil/correo', [ProfileController::class, 'requestEmail'])->middleware('throttle:10,1,profile-email')->block(10, 10);
+        Route::post('/perfil/correo/verificar', [ProfileController::class, 'confirmEmail'])->middleware('throttle:20,1,profile-verify')->block(10, 10);
+        Route::post('/perfil/correo/cancelar', [ProfileController::class, 'cancelEmail'])->block(10, 10);
+        Route::post('/perfil/confirmar-acceso', [ProfileController::class, 'requestAccess'])->middleware('throttle:10,1,profile-access')->block(10, 10);
+        Route::post('/perfil/confirmar-acceso/verificar', [ProfileController::class, 'confirmAccess'])->middleware('throttle:20,1,profile-access-verify')->block(10, 10);
         Route::get('/disponibilidad', [AppointmentController::class, 'availability']);
         Route::get('/mis-citas', [AppointmentController::class, 'index']);
         Route::get('/citas/{appointment}', [AppointmentController::class, 'show']);

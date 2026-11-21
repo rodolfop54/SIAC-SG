@@ -69,7 +69,7 @@ test('T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado
 });
 test('T10 · bot reserva y cancela, información compartida con web', async ({ page }) => {
   await login(page, 'DEMO-LEO');
-  await page.getByRole('link', { name: 'Bot público', exact: true }).click();
+  await page.goto('/bot');
   await page.getByRole('button', { name: 'Volver al menú', exact: true }).last().click();
   await page.getByRole('button', { name: '1 · Consultar y reservar' }).click();
   await page.locator('.chat-option').first().click();
@@ -82,7 +82,7 @@ test('T10 · bot reserva y cancela, información compartida con web', async ({ p
   await page.screenshot({ path: 'output/playwright/bot-1366.png', fullPage: true });
   await page.getByRole('link', { name: 'Mi espacio', exact: true }).click();
   await expect(page.locator('.appointment-card').filter({ hasText: code })).toBeVisible();
-  await page.getByRole('link', { name: 'Bot público', exact: true }).click();
+  await page.goto('/bot');
   await page.getByRole('button', { name: '4 · Cancelar' }).click();
   await page.locator('.chat-option').first().click();
   await page.getByRole('button', { name: 'Sí, cancelar esta cita' }).click();

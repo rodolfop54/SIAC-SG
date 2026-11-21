@@ -22,6 +22,8 @@ const labels: Record<string, string> = {
   crear_franja: 'Crear franja',
   bloquear_franja: 'Bloquear franja',
   habilitar_franja: 'Habilitar franja',
+  actualizar_perfil: 'Actualizar nombre de perfil',
+  actualizar_correo: 'Verificar nuevo correo',
 };
 export default function Audit({
   events,
@@ -33,7 +35,7 @@ export default function Audit({
   return (
     <Layout
       title="Auditoría"
-      description="Trazabilidad de reservas y cambios de agenda. Cada evento conserva su actor y sus valores."
+      description="Revisa reservas, cambios de agenda y actualizaciones de perfil. Cada evento conserva su actor."
     >
       <div className="panel">
         <div className="filter-bar">

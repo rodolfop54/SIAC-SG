@@ -50,7 +50,7 @@ class PatientEmailAccessController extends Controller
         $request->session()->forget('patient_email_challenge');
         Auth::login($user);
         $request->session()->regenerate();
-        $request->session()->put(['last_activity' => now()->timestamp, 'auth_version' => $user->auth_version]);
+        $request->session()->put(['last_activity' => now()->timestamp, 'auth_version' => $user->auth_version, 'auth_confirmed_at' => now()->timestamp]);
 
         return redirect('/mis-citas')->with('success', 'Tu cuenta está lista para el portal y el bot.');
     }

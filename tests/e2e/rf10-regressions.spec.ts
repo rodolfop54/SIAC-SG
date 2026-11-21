@@ -171,14 +171,14 @@ test('D03: nueva sesión, historial, navegación y acciones antiguas mantienen o
   const document = 'LABD03' + Date.now();
   await identify(page, document);
   await activateWeb(page, document);
-  await page.getByRole('link', { name: 'Bot público', exact: true }).click();
+  await page.goto('/bot');
   await selectReservation(page);
 
   const freshContext = await browser.newContext();
   const fresh = await freshContext.newPage();
   await webLogin(fresh, document);
   await expect(fresh).toHaveURL(/disponibilidad/);
-  await fresh.getByRole('link', { name: 'Bot público', exact: true }).click();
+  await fresh.goto('/bot');
   await expect(fresh.getByRole('button', { name: '1 · Consultar y reservar' })).toBeVisible();
   await expect(fresh.getByRole('button', { name: 'Confirmar reserva', exact: true })).toHaveCount(
     0,

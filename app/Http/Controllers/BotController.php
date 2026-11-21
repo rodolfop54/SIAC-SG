@@ -36,7 +36,7 @@ class BotController extends Controller
 
     private function clear(Request $r): void
     {
-        $r->session()->forget(['bot_patient_id', 'bot_identity', 'bot_last_activity', 'bot_actor_id', 'bot', 'bot_auth_version']);
+        $r->session()->forget(['bot_patient_id', 'bot_identity', 'bot_last_activity', 'bot_actor_id', 'bot', 'bot_auth_version', 'bot_confirmed_at']);
         $r->session()->put('bot_closed', true);
         Inertia::clearHistory();
     }
@@ -167,7 +167,7 @@ class BotController extends Controller
         if ($actor) {
             $r->session()->regenerate();
             $r->session()->forget('bot_identity');
-            $r->session()->put(['bot_patient_id' => $actor->id, 'bot_last_activity' => now()->timestamp, 'bot_actor_id' => $actor->id, 'bot_closed' => false, 'bot_auth_version' => $actor->auth_version, 'bot' => $bot->begin($actor)]);
+            $r->session()->put(['bot_patient_id' => $actor->id, 'bot_last_activity' => now()->timestamp, 'bot_confirmed_at' => now()->timestamp, 'bot_actor_id' => $actor->id, 'bot_closed' => false, 'bot_auth_version' => $actor->auth_version, 'bot' => $bot->begin($actor)]);
         } else {
             $r->session()->put('bot_identity', $state);
         }
@@ -186,9 +186,10 @@ class BotController extends Controller
     {
         $patient = $this->actor($request);
         abort_unless($patient, 403);
+        $confirmed = max($request->session()->get('bot_confirmed_at', 0), $request->user()?->id === $patient->id ? $request->session()->get('auth_confirmed_at', 0) : 0);
         Auth::login($patient);
         $request->session()->regenerate();
-        $request->session()->put(['last_activity' => now()->timestamp, 'auth_version' => $patient->auth_version]);
+        $request->session()->put(['last_activity' => now()->timestamp, 'auth_version' => $patient->auth_version, 'auth_confirmed_at' => $confirmed]);
 
         return redirect('/mis-citas');
     }

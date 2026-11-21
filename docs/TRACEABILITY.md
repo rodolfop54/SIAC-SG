@@ -2,6 +2,8 @@
 
 Fuente: objetivos específicos, tablas 5–7 y Anexo D del maestro de Fase 3. Las historias Jira se consultaron, sin modificar su estado.
 
+Perfil del portal: RF01 incorpora edición del nombre y cambio verificado del correo mediante `ProfileController`/`ProfileEmailChange`; RF04 conserva paciente y citas; RF08 añade eventos de actualización sin datos personales; RF10 mantiene su entrada pública fuera del menú privado. Comprobaciones: `ProfileTest`, `profile.spec.ts` y las regresiones de sincronización existentes. Reglas: [PROFILE.md](PROFILE.md).
+
 Incremento del 20 de noviembre: RF01/RF04/RF10 comparten cuenta y acceso directo desde el bot; `PatientEmailAccess`, `PatientEmailSender` y `PatientEmailAccessTest` añaden verificación por código, asociación protegida y recuperación por enlace. Brevo está activo en Render: se comprobó entrega y uso del código, alta sin contraseña y la misma reserva en el portal: [ACCESS_EMAIL.md](ACCESS_EMAIL.md). Se mantienen los identificadores T01–T19; las nuevas pruebas son regresiones técnicas adicionales.
 
 Verificación adicional del despliegue: dos recorridos Chrome aprobados sobre [Render Free](RENDER.md) para RF01 (registro/acceso de paciente), RF02–RF06 y RF10, con reserva anónima y sincronización entre canales. La matriz conserva las comprobaciones locales completas; RF07–RF09 y la concurrencia no se reejecutaron sobre Render.

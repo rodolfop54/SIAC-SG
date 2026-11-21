@@ -43,6 +43,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
         $request->session()->put('last_activity', now()->timestamp);
         $request->session()->put('auth_version', $user->auth_version);
+        $request->session()->put('auth_confirmed_at', now()->timestamp);
 
         return redirect($request->user()->role === 'admin' ? '/admin/agenda' : '/disponibilidad');
     }
