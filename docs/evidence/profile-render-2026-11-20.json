@@ -1,0 +1,23 @@
+{
+  "date_bogota": "2026-11-20",
+  "url": "https://siac-sg.onrender.com/perfil",
+  "code_commit": "3eeea3f10f3fd685716926a7f00e83ba5b30e755",
+  "deploy_id": "dep-dc0f7e59el5s73ducuig",
+  "deploy_status": "live",
+  "http_without_session": [
+    {"path": "/up", "status": 200},
+    {"path": "/perfil", "status": 302, "location": "https://siac-sg.onrender.com/acceso?ended=1"},
+    {"path": "/bot", "status": 200}
+  ],
+  "owner_authenticated_browser": {
+    "profile_page_visible": true,
+    "editable_name_visible": true,
+    "editable_new_email_visible": true,
+    "navigation": ["Disponibilidad", "Mis citas", "Mi perfil"],
+    "public_bot_link_in_private_navigation": false,
+    "owner_personal_data_modified": false,
+    "email_or_credentials_in_published_screenshot": false
+  },
+  "scope": "Published UI inspection and unauthenticated HTTP checks. Full functional and security suite executed locally with isolated data.",
+  "real_email_change": "Not performed; requires a new mailbox controlled and supplied by the owner. No change to the owner's current email or password."
+}

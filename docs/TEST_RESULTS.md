@@ -8,6 +8,8 @@ Las nueve pruebas nuevas de servidor comprueban dueño y rol de paciente, conser
 
 Alcance: PostgreSQL y servidor locales aislados; Brevo interceptado en las pruebas de servidor y desactivado en las de navegador. El cambio completo de un correo real requiere una nueva dirección controlada por el titular y no se contabiliza como ejecutado por estas pruebas. No se repitieron carga ni concurrencia ni se acredita usabilidad con participantes o TRL. Reglas: [PROFILE.md](PROFILE.md). Los resultados anteriores conservan su alcance.
 
+Verificación posterior en Render: despliegue `dep-dc0f7e59el5s73ducuig` en `live`, código `3eeea3f10f3fd685716926a7f00e83ba5b30e755`; perfil abierto en la sesión del titular con los campos de edición y menú de tres opciones, sin bot. Perfil sin sesión redirige por HTTPS al acceso; salud y bot públicos responden 200. Inspección de la versión publicada, sin cambiar el correo del propietario y sin contabilizarla como una repetición completa de los 22 escenarios. [Registro](evidence/profile-render-2026-11-20.json), [menú publicado sin datos personales](evidence/profile-render-menu.jpg).
+
 ## Correo real y cuenta compartida en Render · 20 de noviembre de 2026
 
 Despliegue de código `228d22e9939a4ac0ed968770238ec9dd45c027bd`, correo activado mediante Environment y despliegue `dep-dc0eidrm8hqs73e8jurg` en estado `live`. Brevo Free, remitente verificado y clave restringida a emails transaccionales, guardada de forma privada en Render. El propietario confirmó la recepción del primer correo de conexión y Brevo registró su entrega.
