@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-20",
+  "scope": "Isolated local PostgreSQL and Chrome; fictional patients. Brevo API intercepted in server tests.",
+  "server": {
+    "tests": 54,
+    "assertions": 1357,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 18,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "duration_ms": 241161.913,
+    "scenarios": [
+      {
+        "title": "T03–T06 · recorrido web persistente, reprogramar y cancelar con teclado",
+        "status": "passed",
+        "duration_ms": 8594
+      },
+      {
+        "title": "T10 · bot reserva y cancela, información compartida con web",
+        "status": "passed",
+        "duration_ms": 12169
+      },
+      {
+        "title": "T11–T13 · reflujo, accesibilidad y capturas a 360px",
+        "status": "passed",
+        "duration_ms": 8053
+      },
+      {
+        "title": "T11–T13 · reflujo, accesibilidad y capturas a 768px",
+        "status": "passed",
+        "duration_ms": 7864
+      },
+      {
+        "title": "T11–T13 · reflujo, accesibilidad y capturas a 1366px",
+        "status": "passed",
+        "duration_ms": 8001
+      },
+      {
+        "title": "T07–T09 · administración, filtros, crear franja, auditoría y reportes",
+        "status": "passed",
+        "duration_ms": 19570
+      },
+      {
+        "title": "T15 · CSRF rechaza solicitudes sin token y salida cierra rutas",
+        "status": "passed",
+        "duration_ms": 4040
+      },
+      {
+        "title": "Bot público: cuenta compartida y acceso web directo con las mismas citas",
+        "status": "passed",
+        "duration_ms": 15160
+      },
+      {
+        "title": "Bot WhatsApp público y registro: accesibilidad a 360px",
+        "status": "passed",
+        "duration_ms": 2903
+      },
+      {
+        "title": "Bot WhatsApp público y registro: accesibilidad a 768px",
+        "status": "passed",
+        "duration_ms": 2949
+      },
+      {
+        "title": "Bot WhatsApp público y registro: accesibilidad a 1366px",
+        "status": "passed",
+        "duration_ms": 3027
+      },
+      {
+        "title": "T11–T13 · inicio, acceso y recuperación pública a 360px",
+        "status": "passed",
+        "duration_ms": 7749
+      },
+      {
+        "title": "T11–T13 · inicio, acceso y recuperación pública a 768px",
+        "status": "passed",
+        "duration_ms": 7837
+      },
+      {
+        "title": "T11–T13 · inicio, acceso y recuperación pública a 1366px",
+        "status": "passed",
+        "duration_ms": 7945
+      },
+      {
+        "title": "D01: bloqueo por documento muestra el aviso y la espera",
+        "status": "passed",
+        "duration_ms": 15211
+      },
+      {
+        "title": "D02: comandos globales y rechazo de números reales durante identificación",
+        "status": "passed",
+        "duration_ms": 13029
+      },
+      {
+        "title": "RF10 público: ciclo completo y sincronización de cambios entre ambos canales",
+        "status": "passed",
+        "duration_ms": 49772
+      },
+      {
+        "title": "D03: nueva sesión, historial, navegación y acciones antiguas mantienen opciones vigentes",
+        "status": "passed",
+        "duration_ms": 33042
+      }
+    ]
+  },
+  "build": "TypeScript noEmit and Vite production build passed.",
+  "pending": [
+    "Brevo account/sender verification and API key configuration",
+    "Actual email receipt and end-to-end verification against Render with email enabled",
+    "Human usability evaluation with 10 participants",
+    "TRL validation supported by relevant-environment evidence"
+  ]
+}

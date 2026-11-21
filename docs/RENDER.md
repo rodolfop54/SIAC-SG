@@ -1,6 +1,8 @@
 # SIAC-SG en Render Free
 
-Despliegue publicado y comprobado el 13 de noviembre de 2026 (America/Bogota): [portal](https://siac-sg.onrender.com) y [bot público](https://siac-sg.onrender.com/bot). Funciona sin mantener encendido el equipo local. El repositorio privado es `rodolfop54/SIAC-SG`, rama `main`. El Blueprint raíz `render.yaml` creó solo dos recursos gratuitos: el servicio web `siac-sg` y PostgreSQL 18 `siac-sg-db`, ambos en Oregon. No crea workers, cron, Redis, discos, réplicas ni planes de pago.
+Despliegue publicado y comprobado el 13 de noviembre de 2026 (America/Bogota): [portal](https://siac-sg.onrender.com) y [bot público](https://siac-sg.onrender.com/bot). Funciona sin mantener encendido el equipo local. El repositorio público es `rodolfop54/SIAC-SG`, rama `main`. El Blueprint raíz `render.yaml` creó solo dos recursos gratuitos: el servicio web `siac-sg` y PostgreSQL 18 `siac-sg-db`, ambos en Oregon. No crea workers, cron, Redis, discos, réplicas ni planes de pago.
+
+Actualización del 20 de noviembre: se preparó la cuenta compartida entre bot y portal y el acceso por código/recuperación con Brevo. La API HTTPS funciona dentro de las restricciones de Render Free, sin SMTP. **La entrega real sigue pendiente de crear/verificar el remitente y guardar sus variables en Environment**. No se modifica el Blueprint ni se activa el correo sin esos datos; instrucciones completas: [ACCESS_EMAIL.md](ACCESS_EMAIL.md).
 
 Servicio `srv-dbrrvkm1egvs73c3a91g`, despliegue `dep-dbrrvku1egvs73c3a9qg` en estado `live`, commit de código `b278c97ea6e9197141ae1ec2195293de17af1cbc`. Base `dpg-dbrrvbm1egvs73c39e60-a`, estado `available`. Los dos recursos indican `plan: free`. La base vence el **13 de diciembre de 2026 a las 20:55, hora de Colombia** (`2026-12-14T01:55:59Z`). Metadatos sin credenciales: [registro](../output/verification/render-deployment.json).
 

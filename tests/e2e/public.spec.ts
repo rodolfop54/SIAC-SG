@@ -1,11 +1,15 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-test('T11–T13 · inicio, acceso y recuperación pública en los tres anchos', async ({ page }) => {
-  for (const width of [360, 768, 1366]) {
+for (const width of [360, 768, 1366]) {
+  test(`T11–T13 · inicio, acceso y recuperación pública a ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 950 });
     for (const [route, name] of [
       ['/', 'home'],
       ['/acceso', 'login'],
+      ['/acceso/codigo', 'email-access'],
+      ['/acceso/codigo?registro=1', 'email-signup'],
+      ['/recuperar', 'recover-access'],
+      ['/recuperar/123e4567-e89b-42d3-a456-426614174000/testtoken', 'reset-password'],
       ['/pagina-inexistente', 'error-404'],
     ]) {
       const response = await page.goto(route);
@@ -21,5 +25,5 @@ test('T11–T13 · inicio, acceso y recuperación pública en los tres anchos', 
         .analyze();
       expect(result.violations).toEqual([]);
     }
-  }
-});
+  });
+}

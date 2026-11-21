@@ -6,7 +6,7 @@ async function send(page: import('@playwright/test').Page, value: string, label:
   await page.getByRole('button', { name: 'Enviar opción', exact: true }).click();
 }
 
-test('Bot público: documento, reserva sin cuenta y registro web con las mismas citas', async ({
+test('Bot público: cuenta compartida y acceso web directo con las mismas citas', async ({
   page,
 }) => {
   const document = 'LAB' + Date.now();
@@ -30,19 +30,12 @@ test('Bot público: documento, reserva sin cuenta y registro web con las mismas 
   const text = await page.locator('.incoming').last().innerText();
   const code = text.match(/Código: ([a-f0-9-]{36})/)![1];
   await page.screenshot({ path: 'output/playwright/public-bot-booking.png', fullPage: true });
-  await page.getByRole('link', { name: 'Activar mi cuenta web', exact: true }).click();
-  await expect(page.getByLabel('Nombres y apellidos de prueba')).toHaveValue(
-    'Paciente Bot Ficticio',
-  );
-  await page.getByLabel('Número de documento ficticio', { exact: true }).fill(document);
-  await page.getByLabel('Contraseña', { exact: true }).fill('ClaveWeb!123');
-  await page.getByLabel('Confirmar contraseña', { exact: true }).fill('ClaveWeb!123');
-  await page.getByRole('button', { name: 'Crear mi cuenta web' }).click();
+  await page.getByRole('button', { name: 'Entrar a mi espacio web', exact: true }).click();
   await expect(page).toHaveURL(/mis-citas/);
   await expect(page.locator('.appointment-card').filter({ hasText: code })).toBeVisible();
   await page.getByRole('button', { name: 'Cerrar sesión' }).click();
   await page.getByLabel('Número de documento ficticio', { exact: true }).fill(document);
-  await page.getByLabel('Contraseña de prueba', { exact: true }).fill('ClaveWeb!123');
+  await page.getByLabel('Contraseña de prueba', { exact: true }).fill('ClaveBot!123');
   await page.getByRole('button', { name: 'Entrar a mi espacio' }).click();
   await expect(page).toHaveURL(/disponibilidad/);
 });

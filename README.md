@@ -2,7 +2,7 @@
 
 Sistema de Información para la Administración de Citas. Prototipo funcional de laboratorio para la Fase 4 de Ingeniería de Sistemas, UNAD.
 
-**Solo datos ficticios. No está conectado al Hospital de Sabanagrande ni a servicios sanitarios o de mensajería. Ninguna reserva es una cita médica real.**
+**Solo pacientes y documentos ficticios. No está conectado al Hospital de Sabanagrande ni a WhatsApp. Ninguna reserva es una cita médica real. El acceso por correo, cuando se active, envía mensajes reales al correo verificado del participante.**
 
 **[Abrir la demostración de SIAC-SG en Render](https://siac-sg.onrender.com/)**. La primera carga puede tardar mientras se inicia el servicio.
 
@@ -10,13 +10,13 @@ Incluye acceso por roles, disponibilidad desde PostgreSQL, reserva con revisión
 
 ## Bot público y pacientes
 
-**Decisión de RF10 confirmada:** el bot es un canal principal público, sin inicio de sesión web previo. Usa identificadores sintéticos con prefijo **LAB** o **FICT**, por ejemplo `LAB000001`; no introduzcas documentos reales. La clave del perfil se exige para recuperar citas existentes. Menú/salida funcionan en cualquier paso y las opciones activas pertenecen a la sesión actual. Arquitectura, limitaciones y resultados de las correcciones D01–D03 en [RF10_PUBLIC_BOT.md](docs/RF10_PUBLIC_BOT.md).
+**Una cuenta para ambos canales:** el bot es público y no exige iniciar sesión previamente en la web. Usa identificadores sintéticos con prefijo **LAB** o **FICT**, por ejemplo `LAB000001`; no introduzcas documentos reales. Una vez verificada la identidad de acceso en el bot, **Entrar a mi espacio web** abre directamente las mismas citas, sin otro registro. Los perfiles anteriores también pueden entrar al portal con su documento y contraseña actuales.
 
-Abre **http://127.0.0.1:8000/bot** sin iniciar sesión. El chat tiene aspecto WhatsApp y solicita tipo/número de documento de prueba, nombre completo y una clave. Puedes reservar sin una cuenta web. Documentos: CC, TI, RC, CE, PA, PPT y otros identificadores; «Otros tipos de documento» amplía la lista.
+Con el correo activado, la primera visita pide documento ficticio, nombre de prueba y correo: la cuenta se crea después de verificar un código. Al volver, el documento permite solicitar otro código al correo ya verificado. En la web se puede entrar con código o con contraseña; **Crear o recuperar contraseña** envía un enlace de un solo uso para elegirla. Nunca se envían contraseñas por correo. La cuenta, el historial y las reservas conservan el mismo `users.id`.
 
-El registro web es opcional en **/registro**. Usa el mismo tipo y número de documento: se activa la cuenta sobre el perfil existente y conserva todas sus citas. Desde la sesión verificada del bot la vinculación es directa; desde otro dispositivo se pide la clave previa. La contraseña elegida al registrarte pasa a funcionar en ambos canales. **El documento solo no da acceso al historial.** El número se guarda cifrado, con un índice HMAC único, y no aparece en la transcripción del chat.
+**Activación pendiente:** `PATIENT_EMAIL_ACCESS` vale `false` por defecto. Hasta configurar y verificar el remitente de Brevo, el bot mantiene el acceso con clave y la cuenta ya sirve en la web. Las pantallas de correo muestran el estado pendiente y no simulan entregas. Para asociar un correo a una cuenta anterior se exige la clave actual o una sesión vigente de ese mismo paciente. **El documento solo no autoriza consultar ni modificar citas.** Número y correo se almacenan cifrados. Configuración gratuita, límites y comprobación de entrega real: [ACCESS_EMAIL.md](docs/ACCESS_EMAIL.md).
 
-En **/acceso**, los pacientes entran con documento y contraseña. Para las cuentas sintéticas anteriores y el administrador, selecciona **Cuentas de demostración** y usa el alias de `.runtime/demo-access.txt`. Todos los datos siguen siendo ficticios; no se comprueban documentos contra la Registraduría ni se conecta WhatsApp real. El bot no exige cuenta web. Puede compartirse temporalmente por Internet mediante el túnel descrito abajo; el despliegue de producción sigue pendiente.
+En **/acceso**, los pacientes entran con documento y contraseña. Para las cuentas sintéticas anteriores y el administrador, selecciona **Cuentas de demostración** y usa el alias de `.runtime/demo-access.txt`. No se comprueban documentos contra la Registraduría. Hay una demostración de laboratorio en Render, enlazada arriba; el túnel descrito abajo es una alternativa local. Arquitectura y regresiones del bot: [RF10_PUBLIC_BOT.md](docs/RF10_PUBLIC_BOT.md).
 
 ## Compartir con personas en otras redes
 

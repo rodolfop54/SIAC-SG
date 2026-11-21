@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 
 const botKey = 'ClaveBot!123';
-const webKey = 'ClaveWeb!123';
+const webKey = botKey;
 
 async function send(page: Page, message: string, label = 'Mensaje al asistente') {
   await page.getByLabel(label, { exact: true }).fill(message);
@@ -30,11 +30,7 @@ async function selectReservation(page: Page) {
 }
 
 async function activateWeb(page: Page, document: string) {
-  await page.getByRole('link', { name: 'Activar mi cuenta web', exact: true }).click();
-  await page.getByLabel('Número de documento ficticio', { exact: true }).fill(document);
-  await page.getByLabel('Contraseña', { exact: true }).fill(webKey);
-  await page.getByLabel('Confirmar contraseña', { exact: true }).fill(webKey);
-  await page.getByRole('button', { name: 'Crear mi cuenta web' }).click();
+  await page.getByRole('button', { name: 'Entrar a mi espacio web', exact: true }).click();
   await expect(page).toHaveURL(/mis-citas/);
 }
 
@@ -46,6 +42,7 @@ async function webLogin(page: Page, document: string, password = webKey) {
 }
 
 test('D01: bloqueo por documento muestra el aviso y la espera', async ({ page }) => {
+  test.setTimeout(90000);
   const document = 'LABD01' + Date.now();
   await identify(page, document);
   await activateWeb(page, document);

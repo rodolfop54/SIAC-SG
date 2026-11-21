@@ -12,7 +12,7 @@ class IdleSession
     {
         if (Auth::check()) {
             $last = $request->session()->get('last_activity', now()->timestamp);
-            if (now()->timestamp - $last >= 900) {
+            if (now()->timestamp - $last >= 900 || $request->session()->get('auth_version', 0) !== Auth::user()->auth_version) {
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();

@@ -45,7 +45,7 @@ export default function Login({
               </p>
               <p>Usa el mismo documento de prueba de tu perfil del bot para conservar tus citas.</p>
               <Link href="/bot" className="text-link">
-                Reservar sin cuenta web
+                Reservar por el bot
                 <ArrowRight size={15} />
               </Link>
             </div>
@@ -165,6 +165,16 @@ export default function Login({
                 <ArrowRight size={17} />
               </button>
             </form>
+            <p className="registration-login">
+              <Link href="/acceso/codigo" className="text-link">
+                Entrar con un código por correo
+              </Link>
+            </p>
+            <p className="registration-login">
+              <Link href="/recuperar" className="text-link">
+                Crear o recuperar mi contraseña
+              </Link>
+            </p>
             <p className="registration-login">
               ¿Aún no tienes cuenta?{' '}
               <Link href="/registro" className="text-link">

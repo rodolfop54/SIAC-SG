@@ -1,5 +1,9 @@
 # Estado de implementación
 
+## Cuenta compartida y acceso por correo · 20 de noviembre de 2026
+
+Bot y portal comparten acceso sin un segundo registro: las cuentas anteriores conservan citas y contraseña y el botón del bot abre directamente Mis citas. Se implementaron códigos de un solo uso, asociación protegida de correo a cuentas anteriores y recuperación mediante enlace para elegir contraseña, con vencimiento, límites de intentos y revocación de sesiones. Configuración gratuita de Brevo preparada para Render por HTTPS. **Pendiente: crear/verificar el remitente, guardar la clave API y demostrar una recepción real.** El correo permanece desactivado por defecto y se mantiene el acceso con clave. Resultados verificables y alcance en [TEST_RESULTS.md](TEST_RESULTS.md); instrucciones en [ACCESS_EMAIL.md](ACCESS_EMAIL.md). Las evaluaciones con participantes y TRL conservan sus pendientes.
+
 ## Demostración publicada en Render Free · 13 de noviembre de 2026
 
 [Portal](https://siac-sg.onrender.com) y [bot público sin sesión web](https://siac-sg.onrender.com/bot), con un servicio Docker y PostgreSQL 18, ambos `free` y en Oregon. El despliegue llegó a `live`; migraciones, semilla y arranque funcionaron. Se repitieron **43 pruebas de servidor / 1.196 aserciones en la base local de pruebas** y **dos recorridos Chrome sobre Render**, todos aprobados. Estos últimos comprueban reserva anónima, registro sobre la misma identidad y sincronización bidireccional de reprogramación/cancelación; no sustituyen la suite local completa de 16 escenarios ni acreditan flujos administrativos o carga en el destino. Evidencias y límites: [RENDER.md](RENDER.md).

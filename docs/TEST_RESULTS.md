@@ -1,5 +1,13 @@
 # Registro de pruebas técnicas
 
+## Cuenta compartida y correo · 20 de noviembre de 2026
+
+**54 pruebas de servidor aprobadas / 1.357 aserciones; 18 escenarios Chrome aprobados en una ejecución secuencial, sin omisiones ni reintentos, en 4,0 minutos.** TypeScript y compilación Vite correctos; formato Pint/Prettier comprobado. PostgreSQL de pruebas y base de demostración aislada, sin alterar las citas de la instalación original. Resumen reproducible sin credenciales ni rutas personales: [registro de esta ejecución](evidence/access-unified-2026-11-20.json).
+
+Las once regresiones nuevas de servidor comprueban alta después de verificar correo, persistencia de la reserva al entrar desde el bot al portal, regreso al mismo perfil con código, vencimiento y uso único, cinco intentos, asociación protegida a cuentas anteriores, destinatario verificado inalterable, recuperación con revocación de sesiones y códigos antiguos, fallos del proveedor, respuesta genérica para documentos desconocidos y exclusión de secretos de formularios y cabeceras de recuperación. Las pruebas de navegador mantienen reservas/cambios/cancelaciones entre canales, administración, CSRF y sesiones; añaden las cuatro pantallas de correo/recuperación a 360, 768 y 1366 px con capturas, reflujo y Axe.
+
+**Alcance del correo: API de Brevo interceptada mediante pruebas, sin envíos externos reales.** Falta crear/verificar el remitente, configurar la clave en Render y comprobar recepción y recorrido completo con el proveedor activo. `PATIENT_EMAIL_ACCESS=false` conserva el acceso con clave mientras tanto. No se repitieron concurrencia ni carga para este incremento. Las comprobaciones automáticas no sustituyen la evaluación de usabilidad con diez participantes ni una validación TRL en entorno relevante. Configuración: [ACCESS_EMAIL.md](ACCESS_EMAIL.md). Los registros anteriores conservan su alcance y fechas.
+
 ## Despliegue Render Free · 13 de noviembre de 2026
 
 Commit de aplicación `b278c97ea6e9197141ae1ec2195293de17af1cbc`, servicio `https://siac-sg.onrender.com`, despliegue `live`. Construcción real Docker, migraciones, semilla, Nginx/PHP-FPM y `/up` correctos en Render. Web y PostgreSQL confirmados en plan gratuito.

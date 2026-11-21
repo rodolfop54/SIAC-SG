@@ -10,10 +10,22 @@ use Inertia\Inertia;
 
 class RegistrationController extends Controller
 {
+    private function verifiedPatient(Request $request): ?User
+    {
+        if (now()->timestamp - $request->session()->get('bot_last_activity', 0) >= 900) {
+            return null;
+        }
+        $patient = User::where('role', 'user')->find($request->session()->get('bot_patient_id'));
+
+        return $patient && $request->session()->get('bot_auth_version', 0) === $patient->auth_version ? $patient : null;
+    }
+
     public function show(Request $request)
     {
-        $id = $request->session()->get('bot_patient_id');
-        $patient = $id && now()->timestamp - $request->session()->get('bot_last_activity', 0) < 900 ? User::find($id) : null;
+        if (config('patient_access.enabled')) {
+            return redirect('/acceso/codigo?registro=1');
+        }
+        $patient = $this->verifiedPatient($request);
 
         return Inertia::render('Register', ['documentTypes' => PatientIdentityService::TYPES, 'patientName' => $patient?->name]);
     }
@@ -25,11 +37,11 @@ class RegistrationController extends Controller
             'document_number' => 'required|string|max:30', 'current_password' => 'nullable|string|max:72',
             'password' => 'required|string|min:8|max:72|confirmed',
         ]);
-        $verified = now()->timestamp - $request->session()->get('bot_last_activity', 0) < 900 ? $request->session()->get('bot_patient_id') : null;
+        $verified = $this->verifiedPatient($request)?->id;
         $user = $identity->register($data, $verified, $request->ip());
         Auth::login($user);
         $request->session()->regenerate();
-        $request->session()->put('last_activity', now()->timestamp);
+        $request->session()->put(['last_activity' => now()->timestamp, 'auth_version' => $user->auth_version]);
 
         return redirect('/mis-citas')->with('success', 'Tu cuenta web está lista. Tus reservas del bot ya están vinculadas a tu documento.');
     }

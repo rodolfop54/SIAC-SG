@@ -42,7 +42,7 @@ class PatientAccessTest extends TestCase
         $this->get('/bot')->assertOk()->assertInertia(fn (Assert $p) => $p->where('patient', null)->has('onboarding.options', 11)->has('messages', 0));
         $patient = $this->identify();
         $this->assertGuest();
-        $this->assertNull($patient->web_registered_at);
+        $this->assertNotNull($patient->web_registered_at);
         $this->assertSame('CC', $patient->document_type);
         $this->assertSame('FICT900001', $patient->document_number);
         $this->assertNotSame('FICT900001', DB::table('users')->where('id', $patient->id)->value('document_number'));
@@ -54,8 +54,7 @@ class PatientAccessTest extends TestCase
         $appointment = Appointment::firstOrFail();
         $this->assertSame($patient->id, $appointment->user_id);
         $this->assertSame('bot', $appointment->channel);
-        $this->get('/registro')->assertInertia(fn (Assert $p) => $p->where('patientName', $patient->name));
-        $this->post('/registro', $this->registration(['role' => 'admin']))->assertRedirect('/mis-citas');
+        $this->post('/bot/abrir-web')->assertRedirect('/mis-citas');
         $this->assertAuthenticatedAs($patient);
         $this->assertDatabaseCount('users', 1);
         $this->assertNotNull($patient->fresh()->web_registered_at);
@@ -68,6 +67,7 @@ class PatientAccessTest extends TestCase
     {
         $identity = app(PatientIdentityService::class);
         $patient = $identity->create('Nombre protegido', 'CC', 'FICT900001', 'ClaveFicticia!123');
+        $patient->forceFill(['web_registered_at' => null])->save();
         foreach (['CC', 'FICT900001'] as $input) {
             $this->post('/bot', ['message' => $input])->assertRedirect();
         }
@@ -86,6 +86,7 @@ class PatientAccessTest extends TestCase
     {
         $identity = app(PatientIdentityService::class);
         $patient = $identity->create('Nombre conservado', 'TI', 'FICT900001', 'ClaveFicticia!123');
+        $patient->forceFill(['web_registered_at' => null])->save();
         $this->post('/registro', $this->registration(['document_type' => 'TI', 'current_password' => 'ClaveFicticia!123', 'name' => 'Nombre diferente']))->assertRedirect('/mis-citas');
         $this->assertAuthenticatedAs($patient);
         $this->assertSame('Nombre conservado', $patient->fresh()->name);
@@ -100,17 +101,19 @@ class PatientAccessTest extends TestCase
         $identity = app(PatientIdentityService::class);
         $patient = $identity->create('Paciente de prueba', 'CC', 'LAB1.234-567', 'ClaveFicticia!123');
         $this->assertSame($patient->id, $identity->find('CC', 'LAB1234567')->id);
-        $this->post('/registro', $this->registration(['document_number' => 'LAB1234567']))->assertSessionHasErrors('current_password');
+        $this->post('/registro', $this->registration(['document_number' => 'LAB1234567']))->assertSessionHasErrors('document_number');
         $this->assertDatabaseCount('users', 1);
         $other = $identity->create('Otro perfil de prueba', 'PA', 'LAB1234567', 'ClaveFicticia!123', true);
         $this->assertNotSame($patient->id, $other->id);
         $this->assertDatabaseCount('users', 2);
     }
 
-    public function test_bot_profile_is_not_a_web_account_until_registered_and_cannot_use_technical_alias(): void
+    public function test_bot_account_can_enter_web_with_same_password_and_cannot_use_technical_alias(): void
     {
         $patient = app(PatientIdentityService::class)->create('Paciente de prueba', 'CC', 'FICT900001', 'ClaveFicticia!123');
-        $this->post('/acceso', ['document_type' => 'CC', 'document_number' => 'FICT900001', 'password' => 'ClaveFicticia!123'])->assertSessionHasErrors('document_number');
+        $this->post('/acceso', ['document_type' => 'CC', 'document_number' => 'FICT900001', 'password' => 'ClaveFicticia!123'])->assertRedirect('/disponibilidad');
+        $this->assertAuthenticatedAs($patient);
+        $this->post('/salir');
         $this->post('/acceso', ['alias' => $patient->alias, 'password' => 'ClaveFicticia!123'])->assertSessionHasErrors('alias');
         $this->assertGuest();
     }

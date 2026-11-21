@@ -32,16 +32,17 @@ class AuthController extends Controller
             throw ValidationException::withMessages([$alias ? 'alias' : 'document_number' => 'Demasiados intentos fallidos. Espera un minuto antes de volver a intentar.']);
         }
         $user = $alias ? User::where('alias', $loginId)->whereNull('document_key')->first() : $identity->find($data['document_type'], $data['document_number']);
-        $valid = $user && ($alias || $user->web_registered_at) && Hash::check($data['password'], $user->password);
+        $valid = $user && Hash::check($data['password'], $user->password);
         if (! $valid) {
             RateLimiter::hit($key, 60);
             RateLimiter::hit($ipKey, 60);
-            throw ValidationException::withMessages([$alias ? 'alias' : 'document_number' => 'Los datos de acceso no coinciden. Si reservaste por el bot y aún no tienes cuenta web, regístrate con el mismo documento.']);
+            throw ValidationException::withMessages([$alias ? 'alias' : 'document_number' => 'Los datos de acceso no coinciden. También puedes entrar con un código o crear y recuperar tu contraseña por correo.']);
         }
         Auth::login($user);
         RateLimiter::clear($key);
         $request->session()->regenerate();
         $request->session()->put('last_activity', now()->timestamp);
+        $request->session()->put('auth_version', $user->auth_version);
 
         return redirect($request->user()->role === 'admin' ? '/admin/agenda' : '/disponibilidad');
     }

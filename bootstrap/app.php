@@ -32,7 +32,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectGuestsTo(fn () => route('login', ['ended' => 1]));
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->dontFlash(['message', 'document_number']);
+        $exceptions->dontFlash(['message', 'document_number', 'current_password', 'password', 'password_confirmation', 'code', 'token']);
         $exceptions->respond(function ($response) {
             $status = $response->getStatusCode();
             if (in_array($status, [403, 404, 419, 422, 500, 503]) && ! request()->expectsJson()) {

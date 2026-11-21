@@ -26,7 +26,7 @@ type Prompt = {
   options?: { value: string; label: string }[];
   label: string;
   placeholder: string;
-  inputType: 'text' | 'password';
+  inputType: 'text' | 'password' | 'email';
 };
 type Patient = { name: string; document: string | null; webRegistered: boolean };
 type Current = { message_id: number; text: string; options: { value: string; label: string }[] };
@@ -61,7 +61,7 @@ export default function Bot({
       <main id="main" className="public-bot-main">
         <div className="public-bot-heading">
           <h1>Reserva por chat</h1>
-          <p>Sin cuenta web previa. Tus citas, vinculadas a tu documento.</p>
+          <p>Empieza o vuelve a tus citas. Una cuenta para el bot y el portal.</p>
         </div>
         <Errors />
         <div className="bot-grid whatsapp-grid">
@@ -84,7 +84,7 @@ export default function Bot({
             </header>
             <div className="chat-notice">
               <LockKeyhole size={12} />
-              <span>Estilo WhatsApp · Simulación sin mensajes externos</span>
+              <span>Estilo WhatsApp · Chat de laboratorio</span>
             </div>
             <div
               ref={conversation}
@@ -97,7 +97,7 @@ export default function Bot({
               <div className="chat-date">Hoy</div>
               <div className="chat-privacy">
                 <LockKeyhole size={12} />
-                Tu clave y tu documento no aparecen en esta conversación. Usa datos ficticios.
+                Tus datos de acceso no aparecen en esta conversación. Usa datos ficticios.
               </div>
               {onboarding && (
                 <div className="bubble incoming">
@@ -181,7 +181,7 @@ export default function Bot({
                 value={form.data.message}
                 onChange={(e) => form.setData('message', e.target.value)}
                 placeholder={onboarding?.placeholder ?? 'Escribe un mensaje'}
-                maxLength={100}
+                maxLength={onboarding?.inputType === 'email' ? 254 : 100}
                 autoComplete="off"
                 disabled={form.processing}
               />
@@ -197,16 +197,16 @@ export default function Bot({
           <aside className="bot-guide">
             <h2>Tu asistente de citas</h2>
             <p>
-              Identifícate con tu nombre y documento de prueba. Reserva aquí y activa tu cuenta web
-              cuando quieras: tus citas se conservan.
+              Identifícate para crear tu cuenta o volver a ella. Tus reservas aparecen también en el
+              portal con el mismo perfil.
             </p>
             <div className="bot-guide-rule">
               <ShieldCheck size={22} />
               <div>
                 <h3>Con la misma seguridad</h3>
                 <p>
-                  Tu tipo y número de documento identifican el perfil. Tu clave protege el acceso a
-                  tus citas.
+                  Tu documento identifica el perfil. Verifica el acceso con el código enviado a tu
+                  correo o con la clave de una cuenta anterior.
                 </p>
               </div>
             </div>
@@ -231,12 +231,15 @@ export default function Bot({
                 <small>Perfil de paciente identificado</small>
               </div>
             )}
-            {!auth.user && (
-              <Link href="/registro" className="button full">
-                {patient && !patient.webRegistered
-                  ? 'Activar mi cuenta web'
-                  : 'Registrarme en la web'}
+            {patient && !auth.user && (
+              <Link href="/bot/abrir-web" method="post" as="button" className="button full">
+                Entrar a mi espacio web
                 <ArrowUpRight size={16} />
+              </Link>
+            )}
+            {patient && (
+              <Link href="/acceso/codigo" className="text-link">
+                Configurar acceso por correo
               </Link>
             )}
             {patient && (

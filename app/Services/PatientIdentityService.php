@@ -66,9 +66,9 @@ class PatientIdentityService
         $document = $this->document($type, $number);
         Validator::make(['name' => trim($name), 'password' => $password], ['name' => 'required|string|min:3|max:100', 'password' => 'required|string|min:8|max:72'])->validate();
         try {
-            return DB::transaction(function () use ($name, $document, $password, $web) {
+            return DB::transaction(function () use ($name, $document, $password) {
                 $user = new User(['name' => trim($name), 'alias' => 'PAC-'.strtoupper(Str::random(16)), 'role' => 'user', 'password' => $password]);
-                $user->forceFill([...$document, 'document_key' => $this->key($document['document_type'], $document['document_number']), 'web_registered_at' => $web ? now() : null]);
+                $user->forceFill([...$document, 'document_key' => $this->key($document['document_type'], $document['document_number']), 'web_registered_at' => now(), 'password_set_at' => now()]);
                 $user->save();
 
                 return $user;
@@ -98,7 +98,7 @@ class PatientIdentityService
                 throw ValidationException::withMessages(['document_number' => 'La cuenta ya fue activada. Inicia sesión.']);
             }
             // Keep the original patient id, document, name, appointments and audit references.
-            $user->forceFill(['password' => $data['password'], 'web_registered_at' => now()])->save();
+            $user->forceFill(['password' => $data['password'], 'web_registered_at' => now(), 'password_set_at' => now(), 'auth_version' => $user->auth_version + 1, 'remember_token' => Str::random(60)])->save();
 
             return $user;
         });
