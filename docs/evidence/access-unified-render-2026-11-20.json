@@ -1,0 +1,33 @@
+{
+  "date_bogota": "2026-11-20",
+  "url": "https://siac-sg.onrender.com/",
+  "code_commit": "228d22e9939a4ac0ed968770238ec9dd45c027bd",
+  "deploy_id": "dep-dc0e8ad9fdbs73dru87g",
+  "deploy_status": "live",
+  "http": [
+    {
+      "path": "/up",
+      "status": 200
+    },
+    {
+      "path": "/acceso/codigo",
+      "new_screen_present": true,
+      "status": 200
+    },
+    {
+      "path": "/recuperar",
+      "new_screen_present": true,
+      "status": 200
+    }
+  ],
+  "browser": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "duration_ms": 46137.843,
+    "scenario": "RF10: booking, direct bot-to-web login, shared rescheduling and cancellation, returning bot login and session closure"
+  },
+  "scope": "Real Render deployment; fictional patients and appointments. Email disabled during this verification.",
+  "email_delivery": "Not verified by this scenario; requires separate provider activation and actual receipt."
+}

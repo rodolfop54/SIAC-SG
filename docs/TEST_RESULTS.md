@@ -1,5 +1,15 @@
 # Registro de pruebas técnicas
 
+## Correo real y cuenta compartida en Render · 20 de noviembre de 2026
+
+Despliegue de código `228d22e9939a4ac0ed968770238ec9dd45c027bd`, correo activado mediante Environment y despliegue `dep-dc0eidrm8hqs73e8jurg` en estado `live`. Brevo Free, remitente verificado y clave restringida a emails transaccionales, guardada de forma privada en Render. El propietario confirmó la recepción del primer correo de conexión y Brevo registró su entrega.
+
+Se ejecutó el alta real en el bot publicado con un documento y nombre ficticios y un buzón controlado por el propietario. El código enviado desde Render fue entregado y utilizado: el perfil quedó identificado sin crear contraseña. Se confirmó una reserva ficticia y **Entrar a mi espacio web** mostró el mismo código de reserva en Mis citas, sin otro registro. También se solicitó desde `/recuperar` el enlace para elegir contraseña y Brevo lo registró como **Entregado**. No se eligió ni cambió una contraseña personal durante esta verificación; esa última acción requiere al titular. Vencimiento, uso único, cinco intentos y revocación de accesos mantienen la evidencia automatizada de la suite local, sin presentarla como una comprobación manual remota adicional.
+
+Antes de activar el correo, se aprobó un escenario Chrome completo sobre Render (46,1 s, sin fallos, omisiones ni reintentos) con reserva, acceso directo desde el bot y sincronización de reprogramaciones/cancelaciones. HTTPS 200 en `/up`, `/acceso/codigo` y `/recuperar`. Registros públicos sin credenciales: [recorrido remoto](evidence/access-unified-render-2026-11-20.json), [correo real](evidence/email-render-2026-11-20.json). Las capturas y registros completos se guardaron localmente en `output/verification/access-unified-2026-11-20/`; la captura privada de Brevo no se publica porque muestra el correo del propietario.
+
+No se declara evaluación de usabilidad con diez participantes, nueva prueba de carga ni validación TRL por estas comprobaciones. Los registros siguientes describen la ejecución local y el estado previo a activar el proveedor.
+
 ## Cuenta compartida y correo · 20 de noviembre de 2026
 
 **54 pruebas de servidor aprobadas / 1.357 aserciones; 18 escenarios Chrome aprobados en una ejecución secuencial, sin omisiones ni reintentos, en 4,0 minutos.** TypeScript y compilación Vite correctos; formato Pint/Prettier comprobado. PostgreSQL de pruebas y base de demostración aislada, sin alterar las citas de la instalación original. Resumen reproducible sin credenciales ni rutas personales: [registro de esta ejecución](evidence/access-unified-2026-11-20.json).

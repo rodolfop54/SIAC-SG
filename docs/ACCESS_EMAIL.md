@@ -1,6 +1,10 @@
 # Cuenta compartida y acceso por correo
 
-Actualización del 20 de noviembre de 2026. El bot y la web usan la misma cuenta y las mismas citas. El envío por Brevo está implementado, pero queda pendiente de activar y de comprobar con un correo recibido realmente. Las pruebas automáticas interceptan la API y no constituyen evidencia de entrega externa.
+Actualización del 20 de noviembre de 2026. El bot y la web usan la misma cuenta y las mismas citas. **Brevo está activado en Render.** Se comprobó la recepción real de un correo de prueba, la entrega y uso de un código enviado desde el bot publicado, la creación de un paciente ficticio sin contraseña y el acceso directo a su misma reserva en el portal. Las pruebas automáticas interceptan la API; esta comprobación posterior con el proveedor es una evidencia distinta. No se publican claves, códigos de acceso ni correos personales en el repositorio.
+
+La clave de esta demostración se guardó únicamente en Render, con acceso restringido a emails transaccionales y vencimiento el 21 de diciembre de 2026. Las demás categorías de acceso quedaron sin permisos. Brevo reescribió el dominio del remitente gratuito a su dominio de envío, manteniendo el nombre SIAC-SG. El archivo temporal usado para conectar la clave fue eliminado. También se solicitó desde la web y se observó como **Entregado** el correo para crear o recuperar la contraseña; elegir y guardar una contraseña real corresponde al titular y no se contabiliza como ejecutado en esta comprobación. La instalación local conserva el envío desactivado hasta que se configure expresamente su propio entorno. Registro sin datos personales: [verificación real](evidence/email-render-2026-11-20.json).
+
+Capturas del recorrido publicado, con el mismo código de reserva ficticia: [reserva en el bot](evidence/email-bot-booking.jpg) y [la misma cita en el portal](evidence/email-shared-portal.jpg). Los correos, códigos de acceso y claves no aparecen en estas imágenes.
 
 ## Recorridos
 
@@ -18,7 +22,7 @@ Render Free bloquea conexiones salientes a SMTP 25, 465 y 587. La aplicación ll
 
 1. Crear una cuenta gratuita en [Brevo](https://www.brevo.com/), verificar el correo del propietario y completar los datos solicitados.
 2. En la configuración de remitentes, crear **SIAC-SG** con una dirección que el propietario controle y verificarla mediante el mensaje recibido. Si el proveedor exige autenticar un dominio, completar esa verificación antes de activar el acceso. Con direcciones gratuitas como Gmail, Brevo puede reescribir el remitente para cumplir sus políticas; comprobar el remitente efectivo en una entrega de prueba.
-3. Crear una clave de **API v3**, no una clave SMTP. No pegarla en el chat, capturas ni archivos versionados.
+3. Crear una clave de **API v3**, no una clave SMTP. Elegir acceso **Restringido**, permisos **Todos** solo en **Emails transaccionales** y **Ninguno** en las demás categorías; la interfaz ofrece el envío dentro de ese permiso de correo. Elegir un vencimiento adecuado a la demostración y registrar su fecha. No pegar la clave en el chat, capturas ni archivos versionados.
 4. En [Environment del servicio SIAC-SG](https://dashboard.render.com/web/srv-dbrrvkm1egvs73c3a91g/env), agregar las siguientes variables. Conservar todas las variables existentes y el mismo `APP_KEY`.
 
 | Variable | Valor |
@@ -30,7 +34,7 @@ Render Free bloquea conexiones salientes a SMTP 25, 465 y 587. La aplicación ll
 
 `MAIL_MAILER=log` puede mantenerse: este flujo utiliza directamente la API de Brevo y no escribe el código en el registro de correo de Laravel. Para ejecución local, guardar las mismas variables en `.env`, excluido de Git, y ejecutar `php artisan optimize:clear`. Render reconstruye su configuración al arrancar; guardar las variables y desplegar la versión actual para aplicarlas.
 
-## Comprobación pendiente de entrega real
+## Repetir la comprobación de entrega real
 
 1. Crear un paciente LAB/FICT nuevo usando un correo propio del evaluador. Confirmar recepción, revisar spam y comprobar el registro transaccional de Brevo.
 2. Introducir el código en el bot, reservar una franja y entrar al portal mediante el botón. Verificar que aparece el mismo código de reserva.
@@ -38,7 +42,7 @@ Render Free bloquea conexiones salientes a SMTP 25, 465 y 587. La aplicación ll
 4. Entrar en la web con código. Solicitar el enlace para elegir contraseña; comprobar el dominio HTTPS del enlace y entrar luego con la nueva contraseña.
 5. Verificar rechazo de códigos/enlaces usados, vencidos y de una contraseña anterior. Conservar capturas sin códigos vigentes, claves, correos completos ni documentos personales.
 
-Solo después de realizar estos pasos puede registrarse el envío real como verificado. Si Brevo acepta un mensaje, eso no garantiza por sí solo que haya llegado a la bandeja del destinatario.
+Registrar por separado los pasos realmente ejecutados y los que queden pendientes. Si Brevo acepta un mensaje, eso no garantiza por sí solo que haya llegado a la bandeja del destinatario. En esta demostración, el propietario confirmó la primera recepción y se observó el código entregado y utilizado en el bot; el cambio de contraseña con el proveedor real requiere que el titular elija y guarde personalmente su contraseña. Vencimiento, uso único y revocación de sesiones se comprobaron mediante las pruebas automáticas.
 
 ## Protección y límites
 

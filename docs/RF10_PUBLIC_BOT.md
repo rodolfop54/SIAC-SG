@@ -1,6 +1,6 @@
 # RF10 · Bot público simulado integrado
 
-El bot y el portal son dos canales principales de SIAC-SG y comparten una sola cuenta. `/bot` es público y permite verificar el acceso a un perfil de laboratorio y gestionar citas sin iniciar sesión previamente en el portal. No usa WhatsApp, Meta ni Twilio. El nuevo acceso por correo utiliza Brevo por HTTPS solo cuando se configura y activa; la entrega externa sigue pendiente de verificación. Se conserva la interfaz verde/blanca y el estilo de chat existente. Configuración y estado: [ACCESS_EMAIL.md](ACCESS_EMAIL.md).
+El bot y el portal son dos canales principales de SIAC-SG y comparten una sola cuenta. `/bot` es público y permite verificar el acceso a un perfil de laboratorio y gestionar citas sin iniciar sesión previamente en el portal. No usa WhatsApp, Meta ni Twilio. El acceso por correo utiliza Brevo por HTTPS y está activo en Render: se comprobó la entrega y uso de un código real, la reserva y el acceso directo al mismo historial en el portal. Se conserva la interfaz verde/blanca y el estilo de chat existente. Configuración y límites: [ACCESS_EMAIL.md](ACCESS_EMAIL.md).
 
 ## Identificación y autorización
 

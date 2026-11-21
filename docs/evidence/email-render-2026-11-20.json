@@ -1,0 +1,39 @@
+{
+  "date_bogota": "2026-11-20",
+  "url": "https://siac-sg.onrender.com/",
+  "code_commit": "228d22e9939a4ac0ed968770238ec9dd45c027bd",
+  "email_enabled_deploy": "dep-dc0eidrm8hqs73e8jurg",
+  "deploy_status": "live",
+  "provider": "Brevo Free over HTTPS API",
+  "sender_verified": true,
+  "key_storage": "Render Environment only; temporary local transfer file removed",
+  "key_access": "Restricted to transactional email; other resource categories disabled",
+  "key_expiry": "2026-12-21",
+  "recipient_scope": "Project owner's controlled mailbox; address omitted",
+  "connection_test": {
+    "provider_accepted": true,
+    "provider_event": "delivered",
+    "receipt_confirmed_by_owner": true
+  },
+  "published_bot": {
+    "real_email_code_sent": true,
+    "provider_event": "delivered",
+    "code_used_successfully": true,
+    "fictional_profile_created_without_password": true,
+    "fictional_booking_confirmed": true,
+    "direct_web_access_without_second_registration": true,
+    "same_booking_code_observed_on_web": true
+  },
+  "password_recovery": {
+    "requested_from_published_application": true,
+    "provider_event": "delivered",
+    "personal_password_changed_in_remote_check": false,
+    "remaining_action": "The account owner chooses and saves their password if desired",
+    "automated_evidence": "Expiry, one-time use, attempts and revocation verified in local server tests with intercepted provider"
+  },
+  "limitations": [
+    "A successful delivery to one controlled mailbox does not guarantee delivery to every provider or recipient",
+    "Local installations default to email disabled and require their own private configuration",
+    "No evaluation with ten usability participants and no TRL claim"
+  ]
+}
